@@ -4,9 +4,9 @@ CC	= gcc
 
 RM	= rm -f
 
-SRCS	= src/main.c
+SRCS	= sources/main.c
 
-OBJS	= $(SRCS:=.o)
+OBJS	= $(SRCS:.c=.o)
 
 CFLAGS = -Iinclude
 CFLAGS += -Wall -Wextra
