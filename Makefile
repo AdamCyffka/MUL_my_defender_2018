@@ -1,12 +1,17 @@
-NAME	= my_defender
+##
+## EPITECH PROJECT, 2019
+## Makefile
+## File description:
+## Makefile
+##
 
-CC	= gcc
+NAME	= 	my_defender
 
-RM	= rm -f
+CC		= 	gcc
 
-SRCS	= sources/main.c
+RM		= 	rm -f
 
-OBJS	= $(SRCS:.c=.o)
+SRCS	= 	sources/main.c
 
 CFLAGS = -Iinclude
 CFLAGS += -Wall -Wextra
@@ -32,6 +37,6 @@ fclean: clean
 mklib:
 	cd lib/printf && make
 
-re: fclean all
+re	: 	fclean all
 
-.PHONY: all clean fclean re
+.PHONY	: 	all clean fclean re
