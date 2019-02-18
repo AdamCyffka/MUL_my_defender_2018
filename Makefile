@@ -11,13 +11,19 @@ CC		= 	gcc
 
 RM		= 	rm -f
 
-SRCS	= 	sources/main.c
+SRCS	= 	sources/main.c					\
+			sources/my_defender.c			\
+
+OBJS	= $(SRCS:.c=.o)
 
 CFLAGS = -Iinclude
 CFLAGS += -Wall -Wextra
-CFLAGS += -L./lib/printf -lprintf
+CFLAGS += -L./library/printf -lprintf
 CFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
 CFLAGS += -ggdb3
+
+LDFLAGS = -L./library/printf -lprintf
+LDFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
 
 all: mklib $(NAME)
 
@@ -26,16 +32,16 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
-	cd lib/printf && make clean
+	cd library/printf && make clean
 
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) *~ -f $(NAME)
 	$(RM) *# -f $(NAME)
-	cd lib/printf && make fclean
+	cd library/printf && make fclean
 
 mklib:
-	cd lib/printf && make
+	cd library/printf && make
 
 re	: 	fclean all
 
