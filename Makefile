@@ -1,31 +1,38 @@
-NAME	= my_defender
+##
+## EPITECH PROJECT, 2019
+## Makefile
+## File description:
+## Makefile
+##
 
-CC	= gcc
+NAME	= 	my_defender
 
-RM	= rm -f
+CC		= 	gcc
 
-SRCS	= sources/main.c
+RM		= 	rm -f
 
-OBJS	= $(SRCS:.c=.o)
+SRCS	= 	sources/main.c
 
-CFLAGS = -Iinclude
-CFLAGS += -Wall -Wextra
-CFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
-CFLAGS += -ggdb3
+OBJS	= 	$(SRCS:.c=.o)
 
-all: $(NAME)
+CFLAGS 	= 	-Iinclude
+CFLAGS 	+= 	-Wall -Wextra
+CFLAGS 	+= 	-lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
+CFLAGS 	+= 	-ggdb3
 
-$(NAME): $(OBJS)
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+all		: 	$(NAME)
 
-clean:
-	$(RM) $(OBJS)
+$(NAME)	: 	$(OBJS)
+	 		$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
-fclean: clean
-	$(RM) $(NAME)
-	$(RM) *~ -f $(NAME)
-	$(RM) *# -f $(NAME)
+clean	:
+			$(RM) $(OBJS)
 
-re: fclean all
+fclean	: 	clean
+			$(RM) $(NAME)
+			$(RM) *~ -f $(NAME)
+			$(RM) *# -f $(NAME)
 
-.PHONY: all clean fclean re
+re		: 	fclean all
+
+.PHONY	: 	all clean fclean re

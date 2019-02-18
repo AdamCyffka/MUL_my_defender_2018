@@ -1,15 +1,13 @@
 /*
-** EPITECH PROJECT, 2018
+** EPITECH PROJECT, 2019
 ** main
 ** File description:
-** main my_hunter
+** main my_defender
 */
-
-#include "../include/my.h"
 
 void help(void)
 {
-    my_putstr("DUCK HUNT\n");
+    my_putstr("\n");
     my_putstr("\n");
     my_putstr("HOW TO PLAY ?\n");
     my_putstr("     1) Run : execute ./my_hunter to play\n");
@@ -25,6 +23,6 @@ int main(int ac, char **av)
     } if (ac != 1) {
         return (84);
     } else
-        my_hunter();
+        my_defender();
     return (0);
 }
