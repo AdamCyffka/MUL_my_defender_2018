@@ -5,7 +5,7 @@
 ** my_runner
 */
 
-#include "../include/defender.h"
+#include "defender.h"
 
 int my_defender(void)
 {

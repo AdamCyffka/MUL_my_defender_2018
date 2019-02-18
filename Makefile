@@ -11,28 +11,38 @@ CC		= 	gcc
 
 RM		= 	rm -f
 
-SRCS	= 	sources/main.c
+SRCS	= 	sources/main.c					\
+			sources/my_defender.c			\
 
-OBJS	= 	$(SRCS:.c=.o)
+OBJS	= $(SRCS:.c=.o)
 
-CFLAGS 	= 	-Iinclude
-CFLAGS 	+= 	-Wall -Wextra
-CFLAGS 	+= 	-lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
-CFLAGS 	+= 	-ggdb3
+CFLAGS = -Iinclude
+CFLAGS += -Wall -Wextra
+CFLAGS += -L./library/printf -lprintf
+CFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
+CFLAGS += -ggdb3
 
-all		: 	$(NAME)
+LDFLAGS = -L./library/printf -lprintf
+LDFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
 
-$(NAME)	: 	$(OBJS)
-	 		$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+all: mklib $(NAME)
 
-clean	:
-			$(RM) $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
-fclean	: 	clean
-			$(RM) $(NAME)
-			$(RM) *~ -f $(NAME)
-			$(RM) *# -f $(NAME)
+clean:
+	$(RM) $(OBJS)
+	cd library/printf && make clean
 
-re		: 	fclean all
+fclean: clean
+	$(RM) $(NAME)
+	$(RM) *~ -f $(NAME)
+	$(RM) *# -f $(NAME)
+	cd library/printf && make fclean
+
+mklib:
+	cd library/printf && make
+
+re	: 	fclean all
 
 .PHONY	: 	all clean fclean re
