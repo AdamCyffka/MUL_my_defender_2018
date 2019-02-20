@@ -5,25 +5,22 @@
 ## Makefile
 ##
 
-NAME	= 	my_defender
+NAME	= 	navy
 
 CC		= 	gcc
 
 RM		= 	rm -f
 
 SRCS	= 	sources/main.c					\
-			sources/my_defender.c			\
 
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS = -Iinclude
 CFLAGS += -Wall -Wextra
 CFLAGS += -L./library/printf -lprintf
-CFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
 CFLAGS += -ggdb3
 
 LDFLAGS = -L./library/printf -lprintf
-LDFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
 
 all: mklib $(NAME)
 

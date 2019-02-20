@@ -5,7 +5,7 @@
 ** main my_defender
 */
 
-#include "defender.h"
+#include "navy.h"
 
 void help(void)
 {
@@ -19,11 +19,12 @@ void help(void)
 
 int main(int ac, char **av)
 {
-    if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h')
+    if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0')
         help();
-    else if (ac != 1)
-        return (84);
-    else
-        return(my_defender());
-    return (0);
+    else if (ac != 3) {
+        write(2, "USAGE : ./navy PID map_path\n", 28);
+        return 84;
+    } else
+        return(navy(av[1], av[2]));
+    return 0;
 }
