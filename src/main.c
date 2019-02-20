@@ -9,21 +9,22 @@
 
 void help(void)
 {
+    my_printf("TOWER DEFENCE made with CSFML\n");
+    my_printf("\n");
+    my_printf("USAGE:\n");
     my_printf("\n");
     my_printf("\n");
-    my_printf("HOW TO PLAY ?\n");
-    my_printf("     1) Run : execute ./my_hunter to play\n");
-    my_printf("     2) Play : right click to kill a duck\n");
-    my_printf("     3) Exit : press ESCAPE to leave the game\n");
+    my_printf("You can read the How To Play for more information.\n");
 }
 
 int main(int ac, char **av)
 {
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h')
         help();
-    else if (ac != 1)
+    else if (ac != 1) {
+        my_printf("Usage : my_defender -h\n");
         return (84);
-    else
+    } else
         return(my_defender());
     return (0);
 }

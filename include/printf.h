@@ -6,7 +6,7 @@
 */
 
 #ifndef PRINTF_H_
-    #define PRINTF_H_
+#define PRINTF_H_
 
 int my_printf(char *format, ...);
 
