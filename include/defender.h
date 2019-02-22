@@ -39,7 +39,7 @@ typedef struct game_object {
     sfTexture *texture;
     sfVector2f position;
     sfVector2f jumping_position;
-    sfIntRect rect;
+    sfIntRect rect; 
 } game_object_t;
 
 typedef struct game_buttons {
@@ -47,15 +47,7 @@ typedef struct game_buttons {
 } game_button_t;
 
 typedef struct game_sounds {
-    sfMusic *start;
-    sfMusic *exit;
-    sfMusic *bgmusic;
-    sfMusic *arrow;
-    sfMusic *addtower;
-    sfMusic *selltower;
-    sfMusic *enemyreachlimit;
-    sfMusic *defeat;
-    sfMusic *victory;
+    sfMusic **music;
 } game_sounds_t;
 
 //main.c
