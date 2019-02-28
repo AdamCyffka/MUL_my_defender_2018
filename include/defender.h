@@ -8,6 +8,10 @@
 #ifndef DEFENDER
 #define DEFENDER
 
+#define bool _Bool
+#define true 1
+#define false 0
+
 #include "printf.h"
 #include <SFML/Graphics.h>
 #include <SFML/System.h>
@@ -16,15 +20,37 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 //enums
 enum scene {menu, wave0, wave1, wave2, wave3, wave4, option, victory, defeat};
 
-enum obj {bg1, bg2, bg3};
+enum main_menu {bg1, bg2, bg3, bg4, title1, title2, start};
 
-enum state {running, stopped, first, second, third, fourth, fifth};
+enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed, damage, trap};
+
+enum waves {map, heart, blanck_b, money, blanck_p, cursor, arrow1, arrow2,
+arrow3, arrow4, arrow5, trap1, trap2, trap3, trap4, trap5, enemy1, enemy2,
+enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11,
+enemy12, enemy13, enemy14, enemy15, enemy16, enemy17, enemy18, enemy19, enemy20};
+
+enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
+
+enum txt {money_txt, wave_txt, life_txt};
+
+enum option {option_o, close = 0, plus, minus, sound, mute};
+enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0, back = 0, exit_b};
+
+enum state {overscreen, onscreen, stopped, idle = 0, hover, pressed, atstart = 0, moving, atend};
 
 //structures
+typedef struct game_stat {
+    int current;
+    int lifes;
+    int gold;
+    bool _finish;
+} game_stat_t;
+
 typedef struct game_scene {
     game_object_t *objs;
     game_sound_t *sounds;
@@ -47,10 +73,13 @@ typedef struct game_button {
     sfTexture *texture;
     sfVector2f position;
     sfIntRect rect;
+    int state;
 } game_button_t;
 
 typedef struct game_sound {
     sfMusic *music;
+    sfBool _loop;
+    bool _activated;
 } game_sound_t;
 
 typedef struct game_text {

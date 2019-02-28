@@ -7,6 +7,11 @@
 
 #include "defender.h"
 
+void analyse_events(sfRenderWindow *window, sfEvent event)
+{
+
+}
+
 int create_scene(game_scene_t *scene)
 {
     scene[menu] = new_scene(7, 0, 0, 0);
@@ -36,7 +41,7 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings, "RunnerZ",
     sfClose | sfResize, NULL);
     sfEvent event;
-    int current = 0;
+    game_stat_t *stat = {0, 10, 200};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 8);
 
     create_scene(scene);
@@ -45,9 +50,10 @@ int my_defender(void)
         sfRenderWindow_clear(window, sfBlack);
         while (sfRenderWindow_pollEvent(window, &event))
             analyse_events(window, event);
-        current = scene_selection();
-        game_change();
-        draw_scene(scene[current]);
+        scene_selection(stat);
+        game_change(stat, scene[stat->current], window);
+        draw_scene(scene[stat->current], window);
+        play_musics(scene[stat->current], window);
         sfRenderWindow_display(window);
     }
     destroy_all(scene);
