@@ -7,35 +7,6 @@
 
 #include "defender.h"
 
-game_object_t new_object(const char *path_to_spsheet,
-            sfVector2f pos, sfIntRect rect, float speed)
-{
-    game_object_t obj;
-
-    obj.state = running;
-    obj.speed = speed;
-    obj.sprite = sfSprite_create();
-    obj.texture = sfTexture_createFromFile(path_to_spsheet, NULL);
-    obj.position = pos;
-    obj.jumping_position = pos;
-    obj.rect = rect;
-    sfSprite_setTexture(obj.sprite, obj.texture, sfTrue);
-    sfSprite_setTextureRect(obj.sprite, obj.rect);
-    return (obj);
-}
-
-game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons, int nb_text)
-{
-    game_scene_t new_scene;
-
-    new_scene.objs = malloc(sizeof(game_object_t) * nb_objs);
-    new_scene.sounds = malloc(sizeof(game_sound_t) * nb_musics);
-    new_scene.buttons = malloc(sizeof(game_button_t) * nb_buttons);
-    new_scene.texts = malloc(sizeof(game_text_t) * nb_text);
-
-    return (new_scene);
-}
-
 int create_scene(game_scene_t *scene)
 {
     scene[menu] = new_scene(7, 0, 0, 0);
@@ -52,18 +23,34 @@ int create_scene(game_scene_t *scene)
     fill_scene_wave4(scene[wave4]);
     scene[option] = new_scene(1, 0, 5, 0);
     fill_scene_option(scene[option]);
-    scene[victory] = new_scene(1, 1, 3, 0);
+    scene[victory] = new_scene(1, 1, 2, 0);
     fill_scene_victory(scene[victory]);
-    scene[defeat] = new_scene(1, 1, 3, 0);
+    scene[defeat] = new_scene(1, 1, 2, 0);
     fill_scene_defeat(scene[defeat]);
     return (0);
 }
 
 int my_defender(void)
 {
-    int ret = 0;
+    sfVideoMode window_settings = {1920, 1080, 32};
+    sfRenderWindow *window = sfRenderWindow_create(window_settings, "RunnerZ",
+    sfClose | sfResize, NULL);
+    sfEvent event;
+    int current = 0;
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 8);
 
-    ret = create_scene(scene);
-    return (ret);
+    create_scene(scene);
+    sfRenderWindow_setFramerateLimit(window, 60);
+    while (sfRenderWindow_isOpen(window)) {
+        sfRenderWindow_clear(window, sfBlack);
+        while (sfRenderWindow_pollEvent(window, &event))
+            analyse_events(window, event);
+        current = scene_selection();
+        game_change();
+        draw_scene(scene[current]);
+        sfRenderWindow_display(window);
+    }
+    destroy_all(scene);
+    free_all(scene);
+    return (0);
 }
