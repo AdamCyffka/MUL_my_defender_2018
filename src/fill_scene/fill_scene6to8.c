@@ -33,7 +33,7 @@ void fill_scene_option(game_scene_t option)
 {
     option.objs[option_o] = new_object("option.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 1920, 1080}, 0);
-    option.buttons[close] = new_button("close.png", (sfVector2f) {0, 0},
+    option.buttons[close_b] = new_button("close.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 1920, 1080});
     option.buttons[plus] = new_button("plus.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 1920, 1080});

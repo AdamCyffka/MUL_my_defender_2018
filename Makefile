@@ -11,8 +11,22 @@ CC		= 	gcc
 
 RM		= 	rm -f
 
-SRCS	= 	src/main.c					\
-			src/my_defender.c 			\
+SRCS	= 	src/main.c							\
+			src/my_defender.c 					\
+			src/make_game.c						\
+			src/fill_scene/fill_scene0to1.c		\
+			src/fill_scene/fill_scene2.c		\
+			src/fill_scene/fill_scene3.c		\
+			src/fill_scene/fill_scene4.c		\
+			src/fill_scene/fill_scene4bis.c		\
+			src/fill_scene/fill_scene5.c		\
+			src/fill_scene/fill_scene5bis.c		\
+			src/fill_scene/fill_scene6to8.c		\
+			src/gameloop/game_change.c			\
+			src/gameloop/objs.interaction.c		\
+			src/gameloop/scene_selection.c		\
+			src/gameloop/buttons_interaction.c	\
+			src/gameloop/draw_scene.c			\
 
 OBJS	= $(SRCS:.c=.o)
 

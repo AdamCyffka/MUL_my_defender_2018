@@ -38,7 +38,7 @@ enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 
 enum txt {money_txt, wave_txt, life_txt};
 
-enum option {option_o, close = 0, plus, minus, sound, mute};
+enum option {option_o, close_b = 0, plus, minus, sound, mute};
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0, back = 0, exit_b};
 
 enum state {overscreen, onscreen, stopped, idle = 0, hover, pressed, atstart = 0, moving, atend};
@@ -50,13 +50,6 @@ typedef struct game_stat {
     int gold;
     bool _finish;
 } game_stat_t;
-
-typedef struct game_scene {
-    game_object_t *objs;
-    game_sound_t *sounds;
-    game_button_t *buttons;
-    game_text_t *texts;
-} game_scene_t;
 
 typedef struct game_object {
     int state;
@@ -87,6 +80,13 @@ typedef struct game_text {
     sfFont *font;
 } game_text_t;
 
+typedef struct game_scene {
+    game_object_t *objs;
+    game_sound_t *sounds;
+    game_button_t *buttons;
+    game_text_t *texts;
+} game_scene_t;
+
 //main.c
 int main(int ac, char **av);
 
@@ -96,9 +96,9 @@ int my_defender(void);
 //make_scene.c
 game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons, int nb_text);
 game_object_t new_object(const char *path_to_spsheet, sfVector2f pos, sfIntRect rect, float speed);
-game_sound_t new_sound();
-game_button_t new_button();
-game_text_t new_text();
+game_sound_t new_sound(const char *path_to_sound, sfBool state, float volume);
+game_button_t new_button(const char *path_to_img, sfVector2f pos, sfIntRect rect);
+game_text_t new_text(const char *path_to_font, const char *towrite, sfVector2f pos, int size);
 
 //fill_scene//
 
@@ -130,5 +130,24 @@ void fill_scene_victory(game_scene_t victory);
 void fill_scene_defeat(game_scene_t defeat);
 
 //fill_scene//
+
+//gameloop//
+
+//game_change.c
+void game_change(game_stat_t *stat, game_scene_t scene, sfRenderWindow *window);
+
+//objs_interaction.c
+void objs_animation(game_object_t *objs);
+void objs_movement(game_object_t *objs);
+
+//scene_selection.c
+void scene_selection(game_stat_t *stat);
+
+//draw_scene.c
+void draw_scene(game_scene_t scene, sfRenderWindow *window);
+
+//buttons_interaction.c
+void buttons_animation(game_button_t *buttons);
+void buttons_activation(game_button_t *buttons);
 
 #endif /* DEFENDER */

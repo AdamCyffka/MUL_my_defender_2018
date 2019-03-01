@@ -13,7 +13,7 @@ game_text_t new_text(const char *path_to_font, const char *towrite,
     game_text_t text;
 
     text.text = sfText_create();
-    text.font = sfFont_createFromFile("assets/font.tff");
+    text.font = sfFont_createFromFile(path_to_font);
     sfText_setPosition(text.text, pos);
     sfText_setString(text.text, towrite);
     sfText_setFont(text.text, text.font);
@@ -55,7 +55,7 @@ game_object_t new_object(const char *path_to_spsheet,
 {
     game_object_t obj;
 
-    obj.state = running;
+    obj.state = 0;
     obj.speed = speed;
     obj.sprite = sfSprite_create();
     obj.texture = sfTexture_createFromFile(path_to_spsheet, NULL);
