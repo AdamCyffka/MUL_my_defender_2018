@@ -5,7 +5,7 @@
 ## Makefile
 ##
 
-NAME	= 	defender
+NAME	= 	my_defender
 
 CC		= 	gcc
 
@@ -14,6 +14,7 @@ RM		= 	rm -f
 SRCS	= 	src/main.c							\
 			src/my_defender.c 					\
 			src/make_game.c						\
+			src/destroy_scene.c					\
 			src/fill_scene/fill_scene0to1.c		\
 			src/fill_scene/fill_scene2.c		\
 			src/fill_scene/fill_scene3.c		\
@@ -23,10 +24,10 @@ SRCS	= 	src/main.c							\
 			src/fill_scene/fill_scene5bis.c		\
 			src/fill_scene/fill_scene6to8.c		\
 			src/gameloop/game_change.c			\
-			src/gameloop/objs_interaction.		\
+			src/gameloop/objs_interaction.c		\
 			src/gameloop/scene_selection.c		\
 			src/gameloop/buttons_interaction.c	\
-			src/gameloop/draw_scene.c			\
+			src/gameloop/draw_scene.c
 
 OBJS	= $(SRCS:.c=.o)
 
@@ -38,6 +39,7 @@ CFLAGS += -ggdb3
 
 LDFLAGS = -L./lib/printf -lprintf
 LDFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
+LDFLAGS += -ggdb3
 
 all: mklib $(NAME)
 

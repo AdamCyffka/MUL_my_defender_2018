@@ -60,21 +60,26 @@ game_object_t new_object(const char *path_to_spsheet,
     obj.sprite = sfSprite_create();
     obj.texture = sfTexture_createFromFile(path_to_spsheet, NULL);
     obj.position = pos;
-    obj.jumping_position = pos;
     obj.rect = rect;
     sfSprite_setTexture(obj.sprite, obj.texture, sfTrue);
     sfSprite_setTextureRect(obj.sprite, obj.rect);
+    sfSprite_setPosition(obj.sprite, pos);
     return (obj);
 }
 
-game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons, int nb_text)
+game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons, int nb_texts)
 {
     game_scene_t new_scene;
 
     new_scene.objs = malloc(sizeof(game_object_t) * nb_objs);
     new_scene.sounds = malloc(sizeof(game_sound_t) * nb_musics);
     new_scene.buttons = malloc(sizeof(game_button_t) * nb_buttons);
-    new_scene.texts = malloc(sizeof(game_text_t) * nb_text);
+    new_scene.texts = malloc(sizeof(game_text_t) * nb_texts);
+    new_scene.how_many = malloc(sizeof(int) * 4);
+    new_scene.how_many[0] = nb_objs;
+    new_scene.how_many[1] = nb_musics;
+    new_scene.how_many[2] = nb_buttons;
+    new_scene.how_many[3] = nb_texts; 
 
     return (new_scene);
 }

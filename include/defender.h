@@ -23,11 +23,11 @@
 #include <stdbool.h>
 
 //enums
-enum scene {menu, wave0, wave1, wave2, wave3, wave4, option, victory, defeat};
+enum scene {menu, wave0, wave1, wave2, wave3, wave4, options, victory, defeat};
 
 enum main_menu {bg1, bg2, bg3, bg4, title1, title2, start};
 
-enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed, damage, trap};
+enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed, damage, trap, option};
 
 enum waves {map, heart, blanck_b, money, blanck_p, cursor, arrow1, arrow2,
 arrow3, arrow4, arrow5, trap1, trap2, trap3, trap4, trap5, enemy1, enemy2,
@@ -57,7 +57,6 @@ typedef struct game_object {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f position;
-    sfVector2f jumping_position;
     sfIntRect rect; 
 } game_object_t;
 
@@ -85,6 +84,7 @@ typedef struct game_scene {
     game_sound_t *sounds;
     game_button_t *buttons;
     game_text_t *texts;
+    int *how_many;
 } game_scene_t;
 
 //main.c
@@ -149,5 +149,8 @@ void draw_scene(game_scene_t scene, sfRenderWindow *window);
 //buttons_interaction.c
 void buttons_animation(game_button_t *buttons);
 void buttons_activation(game_button_t *buttons);
+
+//destroy_scene.c
+void destroy_all(game_scene_t *scene);
 
 #endif /* DEFENDER */
