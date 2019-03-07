@@ -49,6 +49,7 @@ typedef struct game_stat {
     int lifes;
     int gold;
     bool _finish;
+    sfVector2f cursorpos;
 } game_stat_t;
 
 typedef struct game_object {
@@ -138,7 +139,7 @@ void game_change(game_stat_t *stat, game_scene_t scene, sfRenderWindow *window);
 
 //objs_interaction.c
 void objs_animation(game_object_t *objs);
-void objs_movement(game_object_t *objs);
+void objs_movement(game_object_t *objs, game_stat_t *stats);
 
 //scene_selection.c
 void scene_selection(game_stat_t *stat);
