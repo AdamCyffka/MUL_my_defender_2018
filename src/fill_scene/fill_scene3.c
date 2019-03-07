@@ -16,9 +16,9 @@ void fill_scene_wave2e(game_scene_t wave2)
     wave2.buttons[damage] = new_button("assets/buttondamage.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 100, 100});
     wave2.buttons[trap] = new_button("assets/buttontrap.png",
-    (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 100, 100});
+    (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 70, 70});
     wave2.buttons[option] = new_button("assets/buttonoption.png",
-    (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 100, 100});
+    (sfVector2f) {1480, 0}, (sfIntRect) {0, 0, 100, 100});
     wave2.texts[0] = new_text("assets/font.ttf", "0",
     (sfVector2f) {425, 45}, 16);
     wave2.texts[1] = new_text("assets/font.ttf", "Wave 2/4",
@@ -57,15 +57,15 @@ void fill_scene_wave2c(game_scene_t wave2)
     wave2.objs[arrow5] = new_object("assets/arrow.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 20, 20}, 0);
     wave2.objs[trap1] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave2.objs[trap2] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave2.objs[trap3] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave2.objs[trap4] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave2.objs[trap5] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave2.sounds[bg_s] = new_sound("assets/backgroundmusic.ogg", sfTrue, 100);
     wave2.sounds[start_s] = new_sound("assets/startgame.ogg", sfFalse, 100);
     wave2.sounds[add_s] = new_sound("assets/addtower.ogg", sfFalse, 100);
@@ -112,7 +112,7 @@ void fill_scene_wave2a(game_scene_t wave2)
     wave2.objs[blanck_p] = new_object("assets/pannelblanck.png",
     (sfVector2f) {350, 75}, (sfIntRect) {0, 0, 200, 100}, 0);
     wave2.objs[cursor] = new_object("assets/cursor.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 100, 100}, 0);
+    (sfIntRect) {25, 50, 50, 50}, 0);
     wave2.objs[enemy1] = new_object("assets/enemy.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 23, 23}, 0);
     wave2.objs[enemy2] = new_object("assets/enemy.png", (sfVector2f) {0, 0},

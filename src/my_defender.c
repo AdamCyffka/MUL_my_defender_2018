@@ -7,10 +7,14 @@
 
 #include "defender.h"
 
-void analyse_events(sfRenderWindow *window, sfEvent event)
+void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 {
     sfKeyCode q = sfKeyQ;
 
+    if (event.type == sfEvtMouseMoved) {
+        stats->cursorpos.x = sfMouse_getPositionRenderWindow(window).x - 20;
+        stats->cursorpos.y = sfMouse_getPositionRenderWindow(window).y;
+    }
     if (event.type == sfEvtClosed)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
@@ -43,22 +47,23 @@ int create_scene(game_scene_t *scene)
 int my_defender(void)
 {
     sfVideoMode window_settings = {1920, 1080, 32};
-    sfRenderWindow *window = sfRenderWindow_create(window_settings, "RunnerZ",
-    sfClose | sfResize, NULL);
+    sfRenderWindow *window = sfRenderWindow_create(window_settings,
+    "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-    game_stat_t stat = {5, 10, 200, false};
+    game_stat_t stat = {5, 10, 200, false, (sfVector2f) {0, 0}};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
     create_scene(scene);
     sfRenderWindow_setFramerateLimit(window, 60);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         //scene_selection(&stat);
-        //game_change(&stat, scene[stat.current], window);
+        game_change(&stat, scene[stat.current], window);
         draw_scene(scene[stat.current], window);
         //play_musics(scene[stat.current], window);
         while (sfRenderWindow_pollEvent(window, &event))
-            analyse_events(window, event);
+            analyse_events(window, event, &stat);
         sfRenderWindow_display(window);
     }
     destroy_all(scene);

@@ -35,15 +35,15 @@ void fill_scene_wave3e(game_scene_t wave3)
 void fill_scene_wave3d(game_scene_t wave3)
 {
     wave3.objs[trap2] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave3.objs[trap2] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave3.objs[trap3] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave3.objs[trap4] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave3.objs[trap5] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave3.sounds[bg_s] = new_sound("assets/backgroundmusic.ogg", sfTrue, 100);
     wave3.sounds[start_s] = new_sound("assets/startgame.ogg", sfFalse, 100);
     wave3.sounds[add_s] = new_sound("assets/addtower.ogg", sfFalse, 100);
@@ -75,7 +75,7 @@ void fill_scene_wave3c(game_scene_t wave3)
     wave3.objs[arrow5] = new_object("assets/arrow.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 20, 20}, 0);
     wave3.objs[trap1] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     fill_scene_wave3d(wave3);
 }
 
@@ -115,7 +115,7 @@ void fill_scene_wave3a(game_scene_t wave3)
     wave3.objs[blanck_p] = new_object("assets/pannelblanck.png",
     (sfVector2f) {350, 75}, (sfIntRect) {0, 0, 200, 100}, 0);
     wave3.objs[cursor] = new_object("assets/cursor.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 100, 100}, 0);
+    (sfIntRect) {25, 50, 50, 50}, 0);
     wave3.objs[enemy1] = new_object("assets/enemy.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 23, 23}, 0);
     wave3.objs[enemy2] = new_object("assets/enemy.png", (sfVector2f) {0, 0},

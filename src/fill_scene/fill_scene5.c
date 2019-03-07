@@ -42,15 +42,15 @@ void fill_scene_wave4d(game_scene_t wave4)
     wave4.objs[arrow5] = new_object("assets/arrow.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 20, 20}, 0);
     wave4.objs[trap1] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave4.objs[trap2] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave4.objs[trap3] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave4.objs[trap4] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     wave4.objs[trap5] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 282, 221}, 0);
+    (sfIntRect) {0, 0, 70, 70}, 0);
     fill_scene_wave4e(wave4);
 }
 
@@ -113,7 +113,7 @@ void fill_scene_wave4a(game_scene_t wave4)
     wave4.objs[blanck_p] = new_object("assets/pannelblanck.png",
     (sfVector2f) {350, 75}, (sfIntRect) {0, 0, 200, 100}, 0);
     wave4.objs[cursor] = new_object("assets/cursor.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 100, 100}, 0);
+    (sfIntRect) {25, 50, 50, 50}, 0);
     wave4.objs[enemy1] = new_object("assets/enemy.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 23, 23}, 0);
     wave4.objs[enemy2] = new_object("assets/enemy.png", (sfVector2f) {0, 0},

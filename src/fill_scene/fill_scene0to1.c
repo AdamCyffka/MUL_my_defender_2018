@@ -34,7 +34,7 @@ void fill_scene_wave0a(game_scene_t wave0)
     wave0.objs[blanck_p] = new_object("assets/pannelblanck.png",
     (sfVector2f) {350, 75}, (sfIntRect) {0, 0, 200, 100}, 0);
     wave0.objs[cursor] = new_object("assets/cursor.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 100, 100}, 0);
+    (sfIntRect) {25, 50, 50, 50}, 0);
     wave0.sounds[bg_s] = new_sound("assets/backgroundmusic.ogg", sfTrue, 100);
     wave0.buttons[flag1] = new_button("assets/flag.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 100, 100});
@@ -55,10 +55,10 @@ void fill_scene_menu(game_scene_t menu)
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     menu.objs[bg3] = new_object("assets/backgroundfade.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
-    menu.objs[title1] = new_object("assets/maintitle.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 100, 100}, 0);
+    menu.objs[title1] = new_object("assets/maintitle.png", (sfVector2f) {700, 50},
+    (sfIntRect) {0, 0, 500, 500}, 0);
     menu.objs[title2] = new_object("assets/maintitlebis.png",
-    (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 100, 100}, 0);
-    menu.objs[start] = new_object("assets/start.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 100, 100}, 0);
+    (sfVector2f) {800, 220}, (sfIntRect) {0, 0, 500, 100}, 0);
+    menu.objs[start] = new_object("assets/start.png", (sfVector2f) {810, 500},
+    (sfIntRect) {0, 0, 400, 100}, 0);
 }
