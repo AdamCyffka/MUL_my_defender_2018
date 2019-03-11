@@ -23,6 +23,9 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
         sfRenderWindow_close(window);
+    if (event.type == sfEvtJoystickConnected)
+        if (event.type == sfEvtJoystickButtonPressed)
+            my_printf("test");
 }
 
 int create_scene(game_scene_t *scene)
@@ -54,8 +57,12 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
+<<<<<<< HEAD
     game_stat_t stat = {wave4, 10, 200, false, false,(sfVector2f) {0, 0},
     sfClock_create(), sfClock_create()};
+=======
+    game_stat_t stat = {menu, 10, 200, false, (sfVector2f) {0, 0}};
+>>>>>>> 3375987380a6ccc47709747096bd938db88c769f
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
     create_scene(scene);
