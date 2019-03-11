@@ -11,6 +11,10 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 {
     sfKeyCode q = sfKeyQ;
 
+    if (event.type == sfEvtMouseButtonPressed)
+        stats->_pressed = true;
+    if (event.type == sfEvtMouseButtonReleased)
+        stats->_pressed = false;
     if (event.type == sfEvtMouseMoved) {
         stats->cursorpos.x = sfMouse_getPositionRenderWindow(window).x - 20;
         stats->cursorpos.y = sfMouse_getPositionRenderWindow(window).y;
@@ -50,7 +54,8 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-    game_stat_t stat = {5, 10, 200, false, (sfVector2f) {0, 0}};
+    game_stat_t stat = {wave4, 10, 200, false, false,(sfVector2f) {0, 0},
+    sfClock_create(), sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
     create_scene(scene);
@@ -58,7 +63,7 @@ int my_defender(void)
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
-        //scene_selection(&stat);
+        scene_selection(&stat, scene[stat.current].objs);
         game_change(&stat, scene[stat.current], window);
         draw_scene(scene[stat.current], window);
         //play_musics(scene[stat.current], window);

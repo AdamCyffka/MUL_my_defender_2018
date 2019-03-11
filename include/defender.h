@@ -41,7 +41,11 @@ enum txt {money_txt, wave_txt, life_txt};
 enum option {option_o, close_b = 0, plus, minus, sound, mute};
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0, back = 0, exit_b};
 
-enum state {overscreen, onscreen, stopped, idle = 0, hover, pressed, atstart = 0, moving, atend};
+enum state {overscreen, onscreen, stopped, idle = 0, hover, pressed, alive = 0, dead, atend};
+
+enum content {nocontent, tower1, tower2, tower3};
+
+enum action {waiting, shooting, trapping, both, hit};
 
 //structures
 typedef struct game_stat {
@@ -49,7 +53,10 @@ typedef struct game_stat {
     int lifes;
     int gold;
     bool _finish;
+    bool _pressed;
     sfVector2f cursorpos;
+    sfClock *clock_enemy;
+    sfClock *clock_arrow;
 } game_stat_t;
 
 typedef struct game_object {
@@ -67,6 +74,8 @@ typedef struct game_button {
     sfVector2f position;
     sfIntRect rect;
     int state;
+    int content;
+    int action;
 } game_button_t;
 
 typedef struct game_sound {
@@ -139,17 +148,17 @@ void game_change(game_stat_t *stat, game_scene_t scene, sfRenderWindow *window);
 
 //objs_interaction.c
 void objs_animation(game_object_t *objs);
-void objs_movement(game_object_t *objs, game_stat_t *stats);
+void objs_movement(game_object_t *objs, game_stat_t *stats, game_button_t *buttons);
 
 //scene_selection.c
-void scene_selection(game_stat_t *stat);
+void scene_selection(game_stat_t *stat, game_object_t *objs);
 
 //draw_scene.c
 void draw_scene(game_scene_t scene, sfRenderWindow *window);
 
 //buttons_interaction.c
 void buttons_animation(game_button_t *buttons);
-void buttons_activation(game_button_t *buttons);
+void buttons_activation(game_button_t *buttons, game_stat_t *stats);
 
 //destroy_scene.c
 void destroy_all(game_scene_t *scene);

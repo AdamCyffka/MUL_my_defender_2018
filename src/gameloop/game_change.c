@@ -52,8 +52,8 @@ void text_changement(game_text_t *texts, game_object_t *objs, game_stat_t *stat)
 void game_change(game_stat_t *stats, game_scene_t scene, sfRenderWindow *window)
 {
     //objs_animation(scene.objs);
-    objs_movement(scene.objs, stats);
-    //buttons_activation(scene.buttons);
+    objs_movement(scene.objs, stats, scene.buttons);
+    buttons_activation(scene.buttons, stats);
     //buttons_animation(scene.buttons);
     //sounds_activation(scene.sounds, scene.objs, scene.buttons);
     //text_changement(scene.texts, scene.objs, stats);   
