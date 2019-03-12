@@ -54,7 +54,7 @@ void game_change(game_stat_t *stats, game_scene_t scene, sfRenderWindow *window)
     //objs_animation(scene.objs);
     objs_movement(scene.objs, stats, scene.buttons);
     buttons_activation(scene.buttons, stats);
-    //buttons_animation(scene.buttons);
+    buttons_animation(scene.buttons);
     //sounds_activation(scene.sounds, scene.objs, scene.buttons);
     //text_changement(scene.texts, scene.objs, stats);   
 }
