@@ -33,13 +33,13 @@ void fill_scene_wave4e(game_scene_t wave4)
 
 void fill_scene_wave4d(game_scene_t wave4)
 {
-    wave4.objs[arrow2] = new_object("assets/arrow.png", (sfVector2f) {750, 310},
+    wave4.objs[arrow2] = new_object("assets/arrow.png", (sfVector2f) {500, 140},
     (sfIntRect) {0, 0, 20, 20}, 0);
-    wave4.objs[arrow3] = new_object("assets/arrow.png", (sfVector2f) {400, 650},
+    wave4.objs[arrow3] = new_object("assets/arrow.png", (sfVector2f) {460, 700},
     (sfIntRect) {0, 0, 20, 20}, 0);
-    wave4.objs[arrow4] = new_object("assets/arrow.png", (sfVector2f) {800, 650},
+    wave4.objs[arrow4] = new_object("assets/arrow.png", (sfVector2f) {840, 700},
     (sfIntRect) {0, 0, 20, 20}, 0);
-    wave4.objs[arrow5] = new_object("assets/arrow.png", (sfVector2f) {1200, 650},
+    wave4.objs[arrow5] = new_object("assets/arrow.png", (sfVector2f) {1240, 700},
     (sfIntRect) {0, 0, 20, 20}, 0);
     wave4.objs[trap1] = new_object("assets/trap.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 70, 70}, 0);
@@ -72,7 +72,7 @@ void fill_scene_wave4c(game_scene_t wave4)
     (sfIntRect) {0, 0, 23, 23}, 0);
     wave4.objs[enemy20] = new_object("assets/enemy.png", (sfVector2f) {950, -600},
     (sfIntRect) {0, 0, 23, 23}, 0);
-    wave4.objs[arrow1] = new_object("assets/arrow.png", (sfVector2f) {750, 100},
+    wave4.objs[arrow1] = new_object("assets/arrow.png", (sfVector2f) {800, 140},
     (sfIntRect) {0, 0, 20, 20}, 0);
     fill_scene_wave4d(wave4);
 }
