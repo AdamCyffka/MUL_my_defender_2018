@@ -57,7 +57,7 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-    game_stat_t stat = {wave4, 10, 200, false, false,(sfVector2f) {0, 0},
+    game_stat_t stat = {wave2, 10, 200, false, false,(sfVector2f) {0, 0},
     sfClock_create(), sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 

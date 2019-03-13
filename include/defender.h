@@ -98,7 +98,7 @@ typedef struct game_scene {
 } game_scene_t;
 
 //main.c
-int main(int ac, char **av);
+int main(int ac, char **av, char **env);
 
 //my_defender.c
 int my_defender(void);
