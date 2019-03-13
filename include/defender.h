@@ -50,6 +50,7 @@ enum action {waiting, shooting, trapping, both, hit};
 //structures
 typedef struct game_stat {
     int current;
+    int enemycount;
     int lifes;
     int gold;
     bool _finish;
@@ -147,14 +148,14 @@ void fill_scene_defeat(game_scene_t defeat);
 void game_change(game_stat_t *stat, game_scene_t scene, sfRenderWindow *window);
 
 //objs_interaction.c
-void objs_animation(game_object_t *objs);
+void enemy_animation(game_object_t *objs, game_stat_t *stats);
 void objs_movement(game_object_t *objs, game_stat_t *stats, game_button_t *buttons);
 
 //scene_selection.c
 void scene_selection(game_stat_t *stat, game_object_t *objs);
 
 //draw_scene.c
-void draw_scene(game_scene_t scene, sfRenderWindow *window);
+void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
 
 //buttons_interaction.c
 void buttons_animation(game_button_t *buttons);

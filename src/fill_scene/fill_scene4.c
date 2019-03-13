@@ -66,7 +66,7 @@ void fill_scene_wave3c(game_scene_t wave3)
     (sfIntRect) {0, 0, 23, 23}, 0);
     wave3.objs[arrow1] = new_object("assets/arrow.png", (sfVector2f) {800, 140},
     (sfIntRect) {0, 0, 20, 20}, 0);
-    wave3.objs[arrow2] = new_object("assets/arrow.png", (sfVector2f) {500, 140},
+    wave3.objs[arrow2] = new_object("assets/arrow.png", (sfVector2f) {800, 340},
     (sfIntRect) {0, 0, 20, 20}, 0);
     wave3.objs[arrow3] = new_object("assets/arrow.png", (sfVector2f) {460, 700},
     (sfIntRect) {0, 0, 20, 20}, 0);

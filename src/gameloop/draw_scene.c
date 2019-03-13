@@ -7,7 +7,7 @@
 
 #include "defender.h"
 
-void draw_scene(game_scene_t scene, sfRenderWindow *window)
+void draw_scene(game_scene_t scene, sfRenderWindow *window, int current)
 {
     for (int tmp = 0; tmp < scene.how_many[0]; tmp++)
         sfRenderWindow_drawSprite(window, scene.objs[tmp].sprite, NULL);
@@ -16,4 +16,6 @@ void draw_scene(game_scene_t scene, sfRenderWindow *window)
         scene.buttons[tmp].shape, NULL);
     for (int tmp = 0; tmp < scene.how_many[3]; tmp++)
         sfRenderWindow_drawText(window, scene.texts[tmp].text, NULL);
+    if (current >= wave0 && current <= wave4)
+        sfRenderWindow_drawSprite(window, scene.objs[cursor].sprite, NULL);
 }

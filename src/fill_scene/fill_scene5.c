@@ -33,7 +33,7 @@ void fill_scene_wave4e(game_scene_t wave4)
 
 void fill_scene_wave4d(game_scene_t wave4)
 {
-    wave4.objs[arrow2] = new_object("assets/arrow.png", (sfVector2f) {500, 140},
+    wave4.objs[arrow2] = new_object("assets/arrow.png", (sfVector2f) {800, 340},
     (sfIntRect) {0, 0, 20, 20}, 0);
     wave4.objs[arrow3] = new_object("assets/arrow.png", (sfVector2f) {460, 700},
     (sfIntRect) {0, 0, 20, 20}, 0);

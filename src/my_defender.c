@@ -10,6 +10,7 @@
 void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 {
     sfKeyCode q = sfKeyQ;
+    sfKeyCode enter = sfKeyReturn;
 
     if (event.type == sfEvtMouseButtonPressed)
         stats->_pressed = true;
@@ -23,9 +24,9 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
         sfRenderWindow_close(window);
-    if (event.type == sfEvtJoystickConnected)
-        if (event.type == sfEvtJoystickButtonPressed)
-            my_printf("test");
+    if (sfKeyboard_isKeyPressed(enter) == sfTrue && (stats->current == menu
+    || stats->current == wave0))
+        stats->_finish = true;
 }
 
 int create_scene(game_scene_t *scene)
@@ -57,7 +58,7 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-    game_stat_t stat = {wave4, 10, 200, false, false,(sfVector2f) {0, 0},
+    game_stat_t stat = {menu, enemy1, 5, 200, false, false,(sfVector2f) {0, 0},
     sfClock_create(), sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
@@ -68,7 +69,7 @@ int my_defender(void)
         sfRenderWindow_clear(window, sfBlack);
         scene_selection(&stat, scene[stat.current].objs);
         game_change(&stat, scene[stat.current], window);
-        draw_scene(scene[stat.current], window);
+        draw_scene(scene[stat.current], window, stat.current);
         //play_musics(scene[stat.current], window);
         while (sfRenderWindow_pollEvent(window, &event))
             analyse_events(window, event, &stat);

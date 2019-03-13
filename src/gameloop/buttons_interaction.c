@@ -7,6 +7,12 @@
 
 #include "defender.h"
 
+void change_buttons_state_flag(game_button_t *buttons)
+{
+    for (int tmp = flag1; tmp <= flag5; tmp++)
+        buttons[tmp].state = idle;
+}
+
 void change_buttons_state(game_button_t *buttons)
 {
     for (int tmp = flag1; tmp <= option; tmp++)
@@ -27,6 +33,54 @@ void check_pressed(game_button_t *buttons)
         }
 }
 
+void t3_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
+{
+    int tmp2 = 0;
+    buttons[sell].position = (sfVector2f) {buttons[tmp].position.x - 75,
+    buttons[tmp].position.y - 75};
+    buttons[speed].position = (sfVector2f) {buttons[tmp].position.x,
+    buttons[tmp].position.y - 75};
+    buttons[damage].position = (sfVector2f) {buttons[tmp].position.x + 75,
+    buttons[tmp].position.y - 75};
+    sfRectangleShape_setPosition(buttons[sell].shape, buttons[sell].position);
+    sfRectangleShape_setPosition(buttons[speed].shape, buttons[speed].position);
+    sfRectangleShape_setPosition(buttons[damage].shape, buttons[damage].position);
+    for (tmp2 = sell; tmp2 <= damage; tmp2++) {
+        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
+        stats->cursorpos.x <= buttons[tmp2].position.x + 85 &&
+        stats->cursorpos.y >= buttons[tmp2].position.y + 15 &&
+        stats->cursorpos.y <= buttons[tmp2].position.y + 85) {
+            buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
+            break;
+        } else
+            buttons[tmp2].state = idle;
+    }
+}
+
+void t2_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
+{
+    int tmp2 = 0;
+    buttons[sell].position = (sfVector2f) {buttons[tmp].position.x - 75,
+    buttons[tmp].position.y - 75};
+    buttons[speed].position = (sfVector2f) {buttons[tmp].position.x,
+    buttons[tmp].position.y - 75};
+    buttons[damage].position = (sfVector2f) {buttons[tmp].position.x + 75,
+    buttons[tmp].position.y - 75};
+    sfRectangleShape_setPosition(buttons[sell].shape, buttons[sell].position);
+    sfRectangleShape_setPosition(buttons[speed].shape, buttons[speed].position);
+    sfRectangleShape_setPosition(buttons[damage].shape, buttons[damage].position);
+    for (tmp2 = sell; tmp2 <= damage; tmp2++) {
+        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
+        stats->cursorpos.x <= buttons[tmp2].position.x + 85 &&
+        stats->cursorpos.y >= buttons[tmp2].position.y + 15 &&
+        stats->cursorpos.y <= buttons[tmp2].position.y + 85) {
+            buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
+            break;
+        } else
+            buttons[tmp2].state = idle;
+    }
+}
+
 void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
 {
     int tmp2 = 0;
@@ -40,16 +94,15 @@ void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
     sfRectangleShape_setPosition(buttons[speed].shape, buttons[speed].position);
     sfRectangleShape_setPosition(buttons[damage].shape, buttons[damage].position);
     for (tmp2 = sell; tmp2 <= damage; tmp2++) {
-        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15&&
+        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
         stats->cursorpos.x <= buttons[tmp2].position.x + 85 &&
-        stats->cursorpos.y >= buttons[tmp2].position.y + 15&&
+        stats->cursorpos.y >= buttons[tmp2].position.y + 15 &&
         stats->cursorpos.y <= buttons[tmp2].position.y + 85) {
             buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
             break;
-        }
+        } else
+            buttons[tmp2].state = idle;
     }
-    if (buttons[tmp2].state == pressed)
-        change_buttons_state(buttons);
 }
 
 void choose_tower(game_button_t *buttons, game_stat_t *stats, int tmp)
@@ -76,6 +129,7 @@ void choose_tower(game_button_t *buttons, game_stat_t *stats, int tmp)
     if (buttons[tmp2].state == pressed) {
         change_buttons_state(buttons);
         buttons[tmp].content = tmp2 - 4;
+        buttons[tmp].action = tmp2 - 4;
     }
 }
 
@@ -95,20 +149,27 @@ void flags_activation(game_button_t *buttons, game_stat_t *stats)
         }
     }
     for (int tmp = flag1; tmp <= flag5; tmp++) {
-        if (buttons[tmp].state == pressed && buttons[tmp].content == nocontent)    
+        if (buttons[tmp].state == pressed && buttons[tmp].content == nocontent) {   
             choose_tower(buttons, stats, tmp);
-        if (buttons[tmp].state == pressed && buttons[tmp].content == tower1)    
+            check_pressed(buttons);
+        } if (buttons[tmp].state == pressed && buttons[tmp].content == tower1) {
             t1_menu(buttons, stats, tmp);
-        /*if (buttons[tmp].state == pressed && buttons[tmp].content == tower2)    
+            check_pressed(buttons);
+        } if (buttons[tmp].state == pressed && buttons[tmp].content == tower2) {  
             t2_menu(buttons, stats, tmp);
-        if (buttons[tmp].state == pressed && buttons[tmp].content == tower3)    
-            t3_menu(buttons, stats, tmp);*/
+            check_pressed(buttons);
+        } if (buttons[tmp].state == pressed && buttons[tmp].content == tower3)  {   
+            t3_menu(buttons, stats, tmp);
+            check_pressed(buttons);
+        }
     }
+
 }
 
 void buttons_activation(game_button_t *buttons, game_stat_t *stats)
 {
-    flags_activation(buttons, stats);
+    if (stats->current >= wave1 && stats->current <= wave4)
+        flags_activation(buttons, stats);
 }
 
 
@@ -127,12 +188,14 @@ void buttons_animation(game_button_t *buttons)
             {sfTexture_createFromFile("assets/tc.png", NULL)}, sfFalse);
     }
     for (int tmp = sell; tmp <= trap; tmp++) {
-        if (buttons[tmp].state == hover) {
+        if (buttons[tmp].state == hover)
             buttons[tmp].rect.left = 100;
-            sfRectangleShape_setTextureRect(buttons[tmp].shape, buttons[tmp].rect);
-        } else if (buttons[tmp].state == idle) {
+        else if (buttons[tmp].state == idle) {
+            buttons[tmp].rect.left = 0;
+        } else {
             buttons[tmp].rect.left = 200;
-            sfRectangleShape_setTextureRect(buttons[tmp].shape, buttons[tmp].rect);
+            change_buttons_state(buttons);
         }
+        sfRectangleShape_setTextureRect(buttons[tmp].shape, buttons[tmp].rect);
     }
 }
