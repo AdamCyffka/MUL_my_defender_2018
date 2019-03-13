@@ -9,7 +9,7 @@
 
 void help(void)
 {
-    my_printf("TOWER DEFENCE made with CSFML\n");
+    my_printf("TOWER DEFENSE made with CSFML\n");
     my_printf("\n");
     my_printf("USAGE:\n");
     my_printf("ESC for pause and HOW TO PLAY menu.\n");
@@ -20,7 +20,7 @@ void help(void)
 }
 
 int main(int ac, char **av, char **env)
-{   
+{
     if (*env == NULL)
         return (84);
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0')
@@ -29,6 +29,6 @@ int main(int ac, char **av, char **env)
         my_printf("Usage : my_defender -h\n");
         return (84);
     } else
-        return(my_defender());
+        return (my_defender());
     return (0);
 }
