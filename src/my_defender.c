@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_runner
+** defender
 ** File description:
-** my_runner
+** main functions
 */
 
 #include "defender.h"

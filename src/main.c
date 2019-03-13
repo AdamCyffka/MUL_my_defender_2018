@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** main
+** defender
 ** File description:
 ** main my_defender
 */

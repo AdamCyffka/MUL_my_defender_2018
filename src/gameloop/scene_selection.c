@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** scene selection
-** File description:
 ** defender
+** File description:
+** scene selection
 */
 
 #include "defender.h"
