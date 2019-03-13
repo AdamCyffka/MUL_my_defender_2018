@@ -113,11 +113,11 @@ void fill_scene_wave2a(game_scene_t wave2)
     (sfVector2f) {350, 75}, (sfIntRect) {0, 0, 200, 100}, 0);
     wave2.objs[cursor] = new_object("assets/cursor.png", (sfVector2f) {0, 0},
     (sfIntRect) {25, 50, 50, 50}, 0);
-    wave2.objs[enemy1] = new_object("assets/enemy.png", (sfVector2f) {950, -30},
-    (sfIntRect) {0, 0, 23, 23}, 0);
-    wave2.objs[enemy2] = new_object("assets/enemy.png", (sfVector2f) {950, -60},
-    (sfIntRect) {0, 0, 23, 23}, 0);
-    wave2.objs[enemy3] = new_object("assets/enemy.png", (sfVector2f) {950, -90},
-    (sfIntRect) {0, 0, 23, 23}, 0);
+    wave2.objs[enemy1] = new_object("assets/enemy.png",
+    (sfVector2f) {950, -30}, (sfIntRect) {0, 0, 23, 23}, 0);
+    wave2.objs[enemy2] = new_object("assets/enemy.png",
+    (sfVector2f) {950, -60}, (sfIntRect) {0, 0, 23, 23}, 0);
+    wave2.objs[enemy3] = new_object("assets/enemy.png",
+    (sfVector2f) {950, -90}, (sfIntRect) {0, 0, 23, 23}, 0);
     fill_scene_wave2b(wave2);
 }

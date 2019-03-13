@@ -27,21 +27,25 @@ enum scene {menu, wave0, wave1, wave2, wave3, wave4, options, victory, defeat};
 
 enum main_menu {bg1, bg2, bg3, bg4, title1, title2, start};
 
-enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed, damage, trap, option};
+enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed,
+damage, trap, option};
 
 enum waves {map, heart, blanck_b, money, blanck_p, cursor, arrow1, arrow2,
 arrow3, arrow4, arrow5, trap1, trap2, trap3, trap4, trap5, enemy1, enemy2,
 enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11,
-enemy12, enemy13, enemy14, enemy15, enemy16, enemy17, enemy18, enemy19, enemy20};
+enemy12, enemy13, enemy14, enemy15, enemy16, enemy17, enemy18, enemy19,
+enemy20};
 
 enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 
 enum txt {money_txt, wave_txt, life_txt};
 
 enum option {option_o, close_b = 0, plus, minus, sound, mute};
-enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0, back = 0, exit_b};
+enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0,
+back = 0, exit_b};
 
-enum state {overscreen, onscreen, stopped, idle = 0, hover, pressed, alive = 0, dead, atend};
+enum state {overscreen, onscreen, stopped, idle = 0, hover, pressed, alive = 0,
+dead, atend};
 
 enum content {nocontent, tower1, tower2, tower3};
 
@@ -66,7 +70,7 @@ typedef struct game_object {
     sfSprite *sprite;
     sfTexture *texture;
     sfVector2f position;
-    sfIntRect rect; 
+    sfIntRect rect;
 } game_object_t;
 
 typedef struct game_button {
@@ -99,17 +103,21 @@ typedef struct game_scene {
 } game_scene_t;
 
 //main.c
-int main(int ac, char **av);
+int main(int ac, char **av, char **env);
 
 //my_defender.c
 int my_defender(void);
 
 //make_scene.c
-game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons, int nb_text);
-game_object_t new_object(const char *path_to_spsheet, sfVector2f pos, sfIntRect rect, float speed);
+game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons,
+int nb_text);
+game_object_t new_object(const char *path_to_spsheet, sfVector2f pos,
+sfIntRect rect, float speed);
 game_sound_t new_sound(const char *path_to_sound, sfBool state, float volume);
-game_button_t new_button(const char *path_to_img, sfVector2f pos, sfIntRect rect);
-game_text_t new_text(const char *path_to_font, const char *towrite, sfVector2f pos, int size);
+game_button_t new_button(const char *path_to_img, sfVector2f pos,
+sfIntRect rect);
+game_text_t new_text(const char *path_to_font, const char *towrite,
+sfVector2f pos, int size);
 
 //fill_scene//
 
@@ -145,7 +153,8 @@ void fill_scene_defeat(game_scene_t defeat);
 //gameloop//
 
 //game_change.c
-void game_change(game_stat_t *stat, game_scene_t scene, sfRenderWindow *window);
+void game_change(game_stat_t *stat, game_scene_t scene,
+sfRenderWindow *window);
 
 //objs_interaction.c
 void enemy_animation(game_object_t *objs, game_stat_t *stats);
