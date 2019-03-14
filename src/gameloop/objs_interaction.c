@@ -33,7 +33,7 @@ game_button_t *buttons)
 }
 
 void move_arrows(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons)
+game_button_t *buttons, game_sound_t *sounds)
 {
     if (buttons[flag1].action == shooting || buttons[flag1].action == both)
         objs[arrow1].position.x += (objs[arrow1].position.x < 970)? 10 : -170;
@@ -45,6 +45,9 @@ game_button_t *buttons)
         objs[arrow4].position.y += (objs[arrow4].position.y < 850)? 10 : -150;
     if (buttons[flag5].action == shooting || buttons[flag5].action == both)
         objs[arrow5].position.y += (objs[arrow5].position.y < 850)? 10 : -150;
+    for (int tmp = flag1; tmp <= flag5; tmp++)
+        if (buttons[tmp].action == shooting || buttons[tmp].action == both)
+            play_arrow_sound(sounds, stats);
     for (int tmp = arrow1; tmp <= arrow3; tmp++)
         sfSprite_setRotation(objs[tmp].sprite, 180);
     for (int tmp = arrow4; tmp <= arrow5; tmp++)
@@ -85,7 +88,7 @@ void move_enemies(game_object_t *objs, game_stat_t *stats)
 }
 
 void objs_movement(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons)
+game_button_t *buttons, game_sound_t *sounds)
 {
     sfTime time = sfClock_getElapsedTime(stats->clock_enemy);
     float seconds = time.microseconds / 1000000.0;
@@ -102,7 +105,7 @@ game_button_t *buttons)
             sfClock_restart(stats->clock_enemy);
         }
         if (seconds2 > 0.05) {
-            move_arrows(objs, stats, buttons);
+            move_arrows(objs, stats, buttons, sounds);
             sfClock_restart(stats->clock_arrow);
         }
     }

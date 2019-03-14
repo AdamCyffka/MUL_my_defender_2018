@@ -62,6 +62,8 @@ typedef struct game_stat {
     sfVector2f cursorpos;
     sfClock *clock_enemy;
     sfClock *clock_arrow;
+    sfClock *clock_sounds;
+    sfClock *clock_trap;
 } game_stat_t;
 
 typedef struct game_object {
@@ -158,7 +160,7 @@ sfRenderWindow *window);
 
 //objs_interaction.c
 void enemy_animation(game_object_t *objs, game_stat_t *stats);
-void objs_movement(game_object_t *objs, game_stat_t *stats, game_button_t *buttons);
+void objs_movement(game_object_t *objs, game_stat_t *stats, game_button_t *buttons, game_sound_t *sounds);
 
 //scene_selection.c
 void scene_selection(game_stat_t *stat, game_object_t *objs);
@@ -172,5 +174,8 @@ void buttons_activation(game_button_t *buttons, game_stat_t *stats);
 
 //destroy_scene.c
 void destroy_all(game_scene_t *scene);
+
+//sound_play.c
+void play_arrow_sound(game_sound_t *sounds, game_stat_t *stats);
 
 #endif /* DEFENDER */

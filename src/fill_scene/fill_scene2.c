@@ -50,7 +50,7 @@ void fill_scene_wave1c(game_scene_t wave1)
     (sfIntRect) {0, 0, 70, 70}, 0);
     wave1.objs[trap5] = new_object("assets/trap.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 70, 70}, 0);
-    wave1.sounds[bg_s] = new_sound("assets/backgroundmusic.ogg", sfTrue, 100);
+    wave1.sounds[bg_s] = new_sound("assets/backgroundmusic.ogg", sfTrue, 10);
     wave1.sounds[start_s] = new_sound("assets/startgame.ogg", sfFalse, 100);
     wave1.sounds[add_s] = new_sound("assets/addtower.ogg", sfFalse, 100);
     wave1.sounds[sell_s] = new_sound("assets/selltower.ogg", sfFalse, 100);
