@@ -59,7 +59,8 @@ int my_defender(void)
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
     game_stat_t stat = {menu, enemy1, 5, 200, false, false,(sfVector2f) {0, 0},
-    sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create()};
+    sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create(),
+    sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
     create_scene(scene);
@@ -69,10 +70,9 @@ int my_defender(void)
     sfMusic_play(scene[wave1].sounds[bg_s].music);
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
-        scene_selection(&stat, scene[stat.current].objs);
-        game_change(&stat, scene[stat.current], window);
+        scene_selection(&stat, scene);
+        game_change(&stat, scene, window);
         draw_scene(scene[stat.current], window, stat.current);
-        //play_musics(scene[stat.current], window);
         while (sfRenderWindow_pollEvent(window, &event))
             analyse_events(window, event, &stat);
         sfRenderWindow_display(window);

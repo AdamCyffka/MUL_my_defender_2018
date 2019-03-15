@@ -65,10 +65,12 @@ typedef struct game_stat {
     sfClock *clock_arrow;
     sfClock *clock_sounds;
     sfClock *clock_trap;
+    sfClock *clock_damage;
 } game_stat_t;
 
 typedef struct game_object {
     int state;
+    int hp;
     float speed;
     sfSprite *sprite;
     sfTexture *texture;
@@ -157,7 +159,7 @@ void fill_scene_defeat(game_scene_t defeat);
 //gameloop//
 
 //game_change.c
-void game_change(game_stat_t *stat, game_scene_t scene,
+void game_change(game_stat_t *stat, game_scene_t *scene,
 sfRenderWindow *window);
 
 //objs_interaction.c
@@ -165,7 +167,7 @@ void enemy_animation(game_object_t *objs, game_stat_t *stats);
 void objs_movement(game_object_t *objs, game_stat_t *stats, game_button_t *buttons, game_sound_t *sounds);
 
 //scene_selection.c
-void scene_selection(game_stat_t *stat, game_object_t *objs);
+void scene_selection(game_stat_t *stat, game_scene_t *scene);
 
 //draw_scene.c
 void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
@@ -179,5 +181,9 @@ void destroy_all(game_scene_t *scene);
 
 //sound_play.c
 void play_arrow_sound(game_sound_t *sounds, game_stat_t *stats);
+void play_loose_win_sounds(int current, game_scene_t *scene);
 
+//enemy_get_damaged.c
+void enemies_get_damaged(game_button_t *buttons,
+game_object_t *objs, game_stat_t *stats);
 #endif /* DEFENDER */

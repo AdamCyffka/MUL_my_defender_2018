@@ -15,19 +15,40 @@ void enemy_animation(game_object_t *objs, game_stat_t *stats)
     }
 }
 
+void activate_trap(game_object_t *objs, game_stat_t *stats,
+game_button_t *buttons)
+{
+    sfTime time = sfClock_getElapsedTime(stats->clock_trap);
+    float seconds = time.microseconds / 1000000.0;
+   
+    if (seconds > 1.5) {
+        for (int tmp = trap1; tmp <= trap5; tmp++) {
+            if (objs[tmp].state == onscreen)
+                objs[tmp].rect.left = (objs[tmp].rect.left == 0) ? 70 : 0;
+            sfSprite_setTextureRect(objs[tmp].sprite, objs[tmp].rect);
+        }
+        sfClock_restart(stats->clock_trap);
+    }
+
+}
+
 void move_trap(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons)
 {
     for (int tmp = flag1; tmp <= flag3; tmp++) {
-        if (buttons[tmp].content == tower2 || buttons[tmp].content == tower3)
+        if (buttons[tmp].content == tower2 || buttons[tmp].content == tower3) {
             objs[tmp + 11].position = (sfVector2f) {buttons[tmp].position.x +
             180, buttons[tmp].position.y};
+            objs[tmp + 11].state = onscreen;
+        }
         sfSprite_setPosition(objs[tmp + 11].sprite, objs[tmp + 11].position);
     }
     for (int tmp = flag4; tmp <= flag5; tmp++) {
-        if (buttons[tmp].content == tower2 || buttons[tmp].content == tower3)
+        if (buttons[tmp].content == tower2 || buttons[tmp].content == tower3) {
             objs[tmp + 11].position = (sfVector2f) {buttons[tmp].position.x +
             10, buttons[tmp].position.y + 170};
+            objs[tmp + 11].state = onscreen;
+        }
         sfSprite_setPosition(objs[tmp + 11].sprite, objs[tmp + 11].position);
     }
 }
@@ -101,6 +122,7 @@ game_button_t *buttons, game_sound_t *sounds)
         sfSprite_setPosition(objs[cursor].sprite, stats->cursorpos);
     if (stats->current >= wave1 && stats->current <= wave4) {
         move_trap(objs, stats, buttons);
+        activate_trap(objs, stats, buttons);
         if (seconds > 0.1) {
             move_enemies(objs, stats);
             enemy_animation(objs, stats);

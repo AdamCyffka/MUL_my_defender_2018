@@ -29,7 +29,8 @@ SRCS	= 	src/main.c							\
 			src/gameloop/scene_selection.c		\
 			src/gameloop/buttons_interaction.c	\
 			src/gameloop/draw_scene.c			\
-			src/gameloop/sound_play.c
+			src/gameloop/sound_play.c			\
+			src/gameloop/enemy_get_damaged.c
 
 OBJS	= $(SRCS:.c=.o)
 
