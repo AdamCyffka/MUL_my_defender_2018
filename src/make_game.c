@@ -43,7 +43,6 @@ game_button_t new_button(const char *path_to_img,
 game_sound_t new_sound(const char *path_to_sound, sfBool state, float volume)
 {
     game_sound_t sound;
-
     sound.music = sfMusic_createFromFile(path_to_sound);
     sound._loop = state;
     sound._activated = false;
@@ -58,6 +57,7 @@ game_object_t new_object(const char *path_to_spsheet,
     game_object_t obj;
 
     obj.state = 0;
+    obj.hp = 1;
     obj.speed = speed;
     obj.sprite = sfSprite_create();
     obj.texture = sfTexture_createFromFile(path_to_spsheet, NULL);
