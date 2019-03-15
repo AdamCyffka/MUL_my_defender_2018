@@ -21,4 +21,6 @@ void draw_scene(game_scene_t scene, sfRenderWindow *window, int current)
         sfRenderWindow_drawText(window, scene.texts[tmp].text, NULL);
     if (current >= wave0 && current <= wave4)
         sfRenderWindow_drawSprite(window, scene.objs[cursor].sprite, NULL);
+    if (current == menu)
+        sfRenderWindow_drawSprite(window, scene.objs[cursor_o].sprite, NULL);
 }

@@ -24,7 +24,8 @@ void set_life(int *lifes, sfText *text)
     sfText_setString(text, towrite);
 }
 
-void text_changement(game_text_t *texts, game_object_t *objs, game_stat_t *stat)
+void text_changement(game_text_t *texts, game_object_t *objs,
+game_stat_t *stat)
 {
     if (stat->current >= wave1 && stat->current <= wave4) {
         set_life(&stat->lifes, texts[life_txt].text);
@@ -36,7 +37,8 @@ void text_changement(game_text_t *texts, game_object_t *objs, game_stat_t *stat)
     }
 }
 
-void game_change(game_stat_t *stats, game_scene_t scene, sfRenderWindow *window)
+void game_change(game_stat_t *stats, game_scene_t scene,
+sfRenderWindow *window)
 {
     objs_movement(scene.objs, stats, scene.buttons, scene.sounds);
     buttons_activation(scene.buttons, stats);

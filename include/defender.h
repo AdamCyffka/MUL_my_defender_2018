@@ -25,7 +25,7 @@
 //enums
 enum scene {menu, wave0, wave1, wave2, wave3, wave4, options, victory, defeat};
 
-enum main_menu {bg1, bg2, bg3, bg4, title1, title2, start};
+enum main_menu {bg1, bg2, bg3, bg4, title1, title2, cursor_o, start_b = 0, exit_menu};
 
 enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed,
 damage, trap, option};
@@ -41,6 +41,7 @@ enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 enum txt {money_txt, wave_txt, life_txt};
 
 enum option {option_o, close_b = 0, plus, minus, sound, mute};
+
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0,
 back = 0, exit_b};
 
@@ -132,6 +133,7 @@ void fill_scene_wave1a(game_scene_t wave1);
 
 //fill_scene3.c
 void fill_scene_wave2a(game_scene_t wave2);
+void fill_scene_wave2b_b(game_scene_t wave2);
 
 //fill_scene4.c
 void fill_scene_wave3a(game_scene_t wave3);

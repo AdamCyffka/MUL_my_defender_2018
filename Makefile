@@ -18,6 +18,7 @@ SRCS	= 	src/main.c							\
 			src/fill_scene/fill_scene0to1.c		\
 			src/fill_scene/fill_scene2.c		\
 			src/fill_scene/fill_scene3.c		\
+			src/fill_scene/fill_scene3bis.c 	\
 			src/fill_scene/fill_scene4.c		\
 			src/fill_scene/fill_scene4bis.c		\
 			src/fill_scene/fill_scene5.c		\

@@ -31,7 +31,7 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 
 int create_scene(game_scene_t *scene)
 {
-    scene[menu] = new_scene(7, 0, 0, 0);
+    scene[menu] = new_scene(7, 0, 2, 0);
     fill_scene_menu(scene[menu]);
     scene[wave0] = new_scene(6, 1, 5, 3);
     fill_scene_wave0a(scene[wave0]);

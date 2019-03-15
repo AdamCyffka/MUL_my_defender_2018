@@ -95,6 +95,8 @@ game_button_t *buttons, game_sound_t *sounds)
     sfTime time2 = sfClock_getElapsedTime(stats->clock_arrow);
     float seconds2 = time2.microseconds / 1000000.0;
 
+    if (stats->current == menu)
+        sfSprite_setPosition(objs[cursor_o].sprite, stats->cursorpos);
     if (stats->current >= wave0 && stats->current <= wave4)
         sfSprite_setPosition(objs[cursor].sprite, stats->cursorpos);
     if (stats->current >= wave1 && stats->current <= wave4) {

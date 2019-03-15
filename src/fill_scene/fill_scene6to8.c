@@ -12,10 +12,10 @@ void fill_scene_defeat(game_scene_t defeat)
     defeat.objs[defeat_o] = new_object("assets/defeat.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     defeat.sounds[defeat_s] = new_sound("assets/defeat.ogg", sfFalse, 100);
-    defeat.buttons[back] = new_button("assets/close.png",
-    (sfVector2f) {800, 450}, (sfIntRect) {0, 0, 100, 100});
+    defeat.buttons[back] = new_button("assets/backtomenu.png",
+    (sfVector2f) {900, 480}, (sfIntRect) {0, 0, 190, 130});
     defeat.buttons[exit_b] = new_button("assets/exit.png",
-    (sfVector2f) {1030, 450}, (sfIntRect) {0, 0, 100, 100});
+    (sfVector2f) {900, 550}, (sfIntRect) {0, 0, 190, 130});
 }
 
 void fill_scene_victory(game_scene_t victory)
@@ -23,10 +23,10 @@ void fill_scene_victory(game_scene_t victory)
     victory.objs[victory_o] = new_object("assets/victory.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     victory.sounds[victory_s] = new_sound("assets/victory.ogg", sfFalse, 100);
-    victory.buttons[back] = new_button("assets/close.png",
-    (sfVector2f) {800, 450}, (sfIntRect) {0, 0, 100, 100});
+    victory.buttons[back] = new_button("assets/backtomenu.png",
+    (sfVector2f) {900, 480}, (sfIntRect) {0, 0, 190, 130});
     victory.buttons[exit_b] = new_button("assets/exit.png",
-    (sfVector2f) {1030, 450}, (sfIntRect) {0, 0, 100, 100});
+    (sfVector2f) {900, 550}, (sfIntRect) {0, 0, 190, 130});
 }
 
 void fill_scene_option(game_scene_t option)
