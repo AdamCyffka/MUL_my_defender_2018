@@ -9,12 +9,6 @@
 
 void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 {
-    sfKeyCode q = sfKeyQ;
-    sfKeyCode enter = sfKeyReturn;
-    sfKeyCode escape = sfKeyEscape;
-    sfTime time = sfClock_getElapsedTime(stats->clock_pause);
-    float seconds = time.microseconds / 1000000.0;
-
     if (event.type == sfEvtMouseButtonPressed)
         stats->_pressed = true;
     if (event.type == sfEvtMouseButtonReleased)
@@ -25,11 +19,23 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
     }
     if (event.type == sfEvtClosed)
         sfRenderWindow_close(window);
+    analyse_keyboard(window, stats);
+}
+
+void analyse_keyboard(sfRenderWindow *window, game_stat_t *stats)
+{
+    sfKeyCode q = sfKeyQ;
+    sfKeyCode enter = sfKeyReturn;
+    sfKeyCode escape = sfKeyEscape;
+    sfTime time = sfClock_getElapsedTime(stats->clock_pause);
+    float seconds = time.microseconds / 1000000.0;
+
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(escape) == sfTrue && seconds > 0.5) {
         stats->previous = stats->current;
-        stats->current = (stats->current == options) ? stats->previous : options;
+        stats->current = (stats->current == options) ?
+        stats->previous : options;
         sfClock_restart(stats->clock_pause);
     }
     if (sfKeyboard_isKeyPressed(enter) == sfTrue && (stats->current == menu
@@ -66,12 +72,8 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-<<<<<<< HEAD
-    game_stat_t stat = {menu, enemy1, 5, 200, false, false,
+    game_stat_t stat = {menu, 0, enemy1, 5, 200, false, false,
     (sfVector2f) {0, 0},
-=======
-    game_stat_t stat = {options, 0, enemy1, 5, 200, false, false,(sfVector2f) {0, 0},
->>>>>>> 81b9ece09053b29339112cedd53a1fb4db3d8cd2
     sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create(),
     sfClock_create(), sfClock_create(), sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);

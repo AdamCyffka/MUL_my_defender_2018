@@ -118,6 +118,7 @@ int main(int ac, char **av, char **env);
 
 //my_defender.c
 int my_defender(void);
+void analyse_keyboard(sfRenderWindow *window, game_stat_t *stats);
 
 //make_scene.c
 game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons,
