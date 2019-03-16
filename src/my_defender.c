@@ -11,6 +11,9 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 {
     sfKeyCode q = sfKeyQ;
     sfKeyCode enter = sfKeyReturn;
+    sfKeyCode escape = sfKeyEscape;
+    sfTime time = sfClock_getElapsedTime(stats->clock_pause);
+    float seconds = time.microseconds / 1000000.0;
 
     if (event.type == sfEvtMouseButtonPressed)
         stats->_pressed = true;
@@ -24,6 +27,11 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
         sfRenderWindow_close(window);
+    if (sfKeyboard_isKeyPressed(escape) == sfTrue && seconds > 0.5) {
+        stats->previous = stats->current;
+        stats->current = (stats->current == options) ? stats->previous : options;
+        sfClock_restart(stats->clock_pause);
+    }
     if (sfKeyboard_isKeyPressed(enter) == sfTrue && (stats->current == menu
     || stats->current == wave0))
         stats->_finish = true;
@@ -58,9 +66,9 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-    game_stat_t stat = {menu, enemy1, 5, 200, false, false,(sfVector2f) {0, 0},
+    game_stat_t stat = {options, 0, enemy1, 5, 200, false, false,(sfVector2f) {0, 0},
     sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create(),
-    sfClock_create()};
+    sfClock_create(), sfClock_create(), sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
     create_scene(scene);

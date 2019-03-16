@@ -19,6 +19,7 @@ void scene_selection(game_stat_t *stats, game_scene_t *scene)
     }
     if (stats->_finish == true) {
         stats->current += (stats->current < wave4) ? 1 : 0;
+        stats->current += (stats->current == wave4) ? 2 : 0;
         stats->enemycount = enemy1;
         stats->_finish = false;
     }
