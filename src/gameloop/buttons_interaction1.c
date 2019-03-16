@@ -22,11 +22,9 @@ void check_pos_start(game_button_t *buttons, game_stat_t *stats, int tmp)
     buttons[tmp].position.y - 75};
     sfRectangleShape_setPosition(buttons[start_b].shape,
     buttons[start_b].position);
-    for (tmp2 = start_b; tmp2 <= damage; tmp2++) {
-        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
-        stats->cursorpos.y <= buttons[tmp2].position.y + 85)
-            buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
-    }
+    if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
+    stats->cursorpos.y <= buttons[tmp2].position.y + 85)
+        buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
 }
 
 void change_buttons_state_flag(game_button_t *buttons)
