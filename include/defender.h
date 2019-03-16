@@ -182,11 +182,24 @@ void scene_selection(game_stat_t *stat, game_scene_t *scene);
 void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
 
 //buttons_interaction.c
-void buttons_animation(game_button_t *buttons);
-void buttons_activation(game_button_t *buttons, game_stat_t *stats);
-void choose_tower_bis(game_button_t *buttons, int tmp);
+void button_start(game_button_t *buttons, game_stat_t *stats, int current);
+void check_pos_start(game_button_t *buttons, game_stat_t *stats, int tmp);
+void change_buttons_state_flag(game_button_t *buttons);
+void change_buttons_state(game_button_t *buttons);
+void check_pressed(game_button_t *buttons);
+void t3_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
+void t3_menu_bis(game_button_t *buttons, int tmp);
+void t2_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
+void t2_menu_bis(game_button_t *buttons, int tmp);
+void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
+void flags_activation(game_button_t *buttons, game_stat_t *stats);
 void flags_activation_bis(game_button_t *buttons, game_stat_t *stats);
+void buttons_activation(game_button_t *buttons, game_stat_t *stats);
+void buttons_animation(game_button_t *buttons);
 void buttons_animation_bis(game_button_t *buttons);
+void t1_menu_bis(game_button_t *buttons, int tmp);
+void choose_tower(game_button_t *buttons, game_stat_t *stats, int tmp);
+void choose_tower_bis(game_button_t *buttons, int tmp);
 
 //destroy_scene.c
 void destroy_all(game_scene_t *scene);
