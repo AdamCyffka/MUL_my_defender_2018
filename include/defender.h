@@ -37,6 +37,8 @@ enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11,
 enemy12, enemy13, enemy14, enemy15, enemy16, enemy17, enemy18, enemy19,
 enemy20};
 
+enum waves0 {map2};
+
 enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 
 enum txt {money_txt, wave_txt, life_txt};
@@ -174,6 +176,7 @@ void move_trap(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons);
 void activate_trap(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons);
+void objs_movement_bis(game_object_t *objs, game_stat_t *stats);
 
 //scene_selection.c
 void scene_selection(game_stat_t *stat, game_scene_t *scene);

@@ -23,7 +23,7 @@ void fill_scene_wave0b(game_scene_t wave0)
 
 void fill_scene_wave0a(game_scene_t wave0)
 {
-    wave0.objs[map] = new_object("assets/map.png", (sfVector2f) {0, 0},
+    wave0.objs[map] = new_object("assets/intro.png", (sfVector2f) {0, 0},
     (sfIntRect) {0, 0, 1920, 1080}, 0);
     wave0.objs[heart] = new_object("assets/buttonheart.png",
     (sfVector2f) {350, 900}, (sfIntRect) {0, 0, 100, 100}, 0);
@@ -57,12 +57,12 @@ void fill_scene_menu(game_scene_t menu)
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     menu.objs[bg3] = new_object("assets/backgroundfade.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
-    menu.objs[title1] = new_object("assets/maintitle.png", (sfVector2f) {700, 50},
-    (sfIntRect) {0, 0, 500, 500}, 0);
+    menu.objs[title1] = new_object("assets/maintitle.png",
+    (sfVector2f) {700, 50}, (sfIntRect) {0, 0, 500, 500}, 0);
     menu.objs[title2] = new_object("assets/maintitlebis.png",
     (sfVector2f) {800, 220}, (sfIntRect) {0, 0, 500, 100}, 0);
-    menu.buttons[exit_menu] = new_button("assets/exit.png", (sfVector2f) {900, 550},
-    (sfIntRect) {0, 0, 190, 130});
-    menu.buttons[start_b] = new_button("assets/start.png", (sfVector2f) {900, 480},
-    (sfIntRect) {0, 0, 190, 130});
+    menu.buttons[exit_menu] = new_button("assets/exit.png",
+    (sfVector2f) {900, 550}, (sfIntRect) {0, 0, 190, 130});
+    menu.buttons[start_b] = new_button("assets/start.png",
+    (sfVector2f) {900, 480}, (sfIntRect) {0, 0, 190, 130});
 }
