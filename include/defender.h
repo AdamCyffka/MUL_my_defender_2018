@@ -58,6 +58,7 @@ enum action {waiting, shooting, trapping, both, hit};
 //structures
 typedef struct game_stat {
     int current;
+    int previous;
     int enemycount;
     int lifes;
     int gold;
@@ -68,7 +69,9 @@ typedef struct game_stat {
     sfClock *clock_arrow;
     sfClock *clock_sounds;
     sfClock *clock_trap;
-    sfClock *clock_damage;
+    sfClock *clock_damage1;
+    sfClock *clock_damage2;
+    sfClock *clock_pause;
 } game_stat_t;
 
 typedef struct game_object {

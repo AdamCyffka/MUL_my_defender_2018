@@ -81,29 +81,29 @@ game_button_t *buttons, game_sound_t *sounds)
 void move_enemies(game_object_t *objs, game_stat_t *stats)
 {
     for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1)); tmp++) {
-        objs[tmp].position.y += (objs[tmp].position.y < 480 &&
-        objs[tmp].position.x == 950) ? 5 : 0;
-        objs[tmp].position.y += (objs[tmp].position.y < 530 &&
-        objs[tmp].position.x == 800) ? 5 : 0;
-        objs[tmp].position.y += (objs[tmp].position.y < 830 &&
-        objs[tmp].position.x == 630) ? 5 : 0;
-        objs[tmp].position.y -= (objs[tmp].position.y > 742.5 &&
-        objs[tmp].position.x == 1400) ? 2.5 : 0;
-        objs[tmp].position.y -= (objs[tmp].position.y > 650 &&
-        objs[tmp].position.x == 1470) ? 5 : 0;
-        objs[tmp].position.x -= (objs[tmp].position.x > 800 &&
-        objs[tmp].position.y == 480) ? 5 : 0;
-        objs[tmp].position.x -= (objs[tmp].position.x > 630 &&
-        objs[tmp].position.y == 530) ? 5 : 0;
-        objs[tmp].position.x += (objs[tmp].position.x < 1400 &&
-        objs[tmp].position.y == 830) ? 5 : 0;
-        objs[tmp].position.x += (objs[tmp].position.x < 1470 &&
-        objs[tmp].position.y == 742.5) ? 5 : 0;
-        sfSprite_setPosition(objs[tmp].sprite, objs[tmp].position);
-        if (objs[tmp].position.x == 1470 && objs[tmp].position.y == 647.5
-        && objs[tmp].state == alive) {
+        if (objs[tmp].state == alive) {
+            objs[tmp].position.y += (objs[tmp].position.y < 480 &&
+            objs[tmp].position.x == 950) ? 5 : 0;
+            objs[tmp].position.y += (objs[tmp].position.y < 530 &&
+            objs[tmp].position.x == 800) ? 5 : 0;
+            objs[tmp].position.y += (objs[tmp].position.y < 830 &&
+            objs[tmp].position.x == 630) ? 5 : 0;
+            objs[tmp].position.y -= (objs[tmp].position.y > 742.5 &&
+            objs[tmp].position.x == 1400) ? 2.5 : 0;
+            objs[tmp].position.y -= (objs[tmp].position.y > 650 &&
+            objs[tmp].position.x == 1470) ? 2.5 : 0;
+            objs[tmp].position.x -= (objs[tmp].position.x > 800 &&
+            objs[tmp].position.y == 480) ? 5 : 0;
+            objs[tmp].position.x -= (objs[tmp].position.x > 630 &&
+            objs[tmp].position.y == 530) ? 5 : 0;
+            objs[tmp].position.x += (objs[tmp].position.x < 1400 &&
+            objs[tmp].position.y == 830) ? 5 : 0;
+            objs[tmp].position.x += (objs[tmp].position.x < 1470 &&
+            objs[tmp].position.y == 742.5) ? 5 : 0;
+            sfSprite_setPosition(objs[tmp].sprite, objs[tmp].position);
+        } if (objs[tmp].position.x == 1470 && objs[tmp].position.y == 650
+        && objs[tmp].state == alive)
             objs[tmp].state = atend;
-        }
     }
 
 }

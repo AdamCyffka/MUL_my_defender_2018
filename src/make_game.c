@@ -57,7 +57,7 @@ game_object_t new_object(const char *path_to_spsheet,
     game_object_t obj;
 
     obj.state = 0;
-    obj.hp = 1;
+    obj.hp = 3;
     obj.speed = speed;
     obj.sprite = sfSprite_create();
     obj.texture = sfTexture_createFromFile(path_to_spsheet, NULL);
