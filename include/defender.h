@@ -25,7 +25,8 @@
 //enums
 enum scene {menu, wave0, wave1, wave2, wave3, wave4, options, victory, defeat};
 
-enum main_menu {bg1, bg2, bg3, bg4, title1, title2, start};
+enum main_menu {bg1, bg2, bg3, bg4, title1, title2, cursor_o, start_b = 0,
+exit_menu};
 
 enum buttons {flag1, flag2, flag3, flag4, flag5, t1, t2, t3, sell, speed,
 damage, trap, option};
@@ -41,6 +42,7 @@ enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 enum txt {money_txt, wave_txt, life_txt};
 
 enum option {option_o, close_b = 0, plus, minus, sound, mute};
+
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0,
 back = 0, exit_b};
 
@@ -137,6 +139,7 @@ void fill_scene_wave1a(game_scene_t wave1);
 
 //fill_scene3.c
 void fill_scene_wave2a(game_scene_t wave2);
+void fill_scene_wave2b_b(game_scene_t wave2);
 
 //fill_scene4.c
 void fill_scene_wave3a(game_scene_t wave3);
@@ -165,7 +168,15 @@ sfRenderWindow *window);
 
 //objs_interaction.c
 void enemy_animation(game_object_t *objs, game_stat_t *stats);
-void objs_movement(game_object_t *objs, game_stat_t *stats, game_button_t *buttons, game_sound_t *sounds);
+void objs_movement(game_object_t *objs, game_stat_t *stats,
+game_button_t *buttons, game_sound_t *sounds);
+void move_enemies(game_object_t *objs, game_stat_t *stats);
+void move_arrows(game_object_t *objs, game_stat_t *stats,
+game_button_t *buttons, game_sound_t *sounds);
+void move_trap(game_object_t *objs, game_stat_t *stats,
+game_button_t *buttons);
+void activate_trap(game_object_t *objs, game_stat_t *stats,
+game_button_t *buttons);
 
 //scene_selection.c
 void scene_selection(game_stat_t *stat, game_scene_t *scene);
@@ -176,6 +187,9 @@ void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
 //buttons_interaction.c
 void buttons_animation(game_button_t *buttons);
 void buttons_activation(game_button_t *buttons, game_stat_t *stats);
+void choose_tower_bis(game_button_t *buttons, int tmp);
+void flags_activation_bis(game_button_t *buttons, game_stat_t *stats);
+void buttons_animation_bis(game_button_t *buttons);
 
 //destroy_scene.c
 void destroy_all(game_scene_t *scene);

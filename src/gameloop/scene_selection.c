@@ -10,7 +10,8 @@
 void scene_selection(game_stat_t *stats, game_scene_t *scene)
 {
     if (stats->current >= wave1 && stats->current <= wave4) {
-        for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1)); tmp++) {
+        for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1));
+        tmp++) {
             if (scene[stats->current].objs[tmp].state == alive)
                 break;
             if (tmp == enemy1 + (5 * (stats->current - 1) - 1))
