@@ -26,6 +26,7 @@ SRCS	= 	src/main.c							\
 			src/fill_scene/fill_scene6to8.c		\
 			src/gameloop/game_change.c			\
 			src/gameloop/objs_interaction.c		\
+			src/gameloop/objs_interaction_bis.c \
 			src/gameloop/scene_selection.c		\
 			src/gameloop/buttons_interaction.c	\
 			src/gameloop/draw_scene.c			\
