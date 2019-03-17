@@ -43,7 +43,8 @@ enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 
 enum txt {money_txt, wave_txt, life_txt};
 
-enum option {cursor_z, option_o, close_b = 0, plus, minus, sound, mute};
+enum option {option_o, cursor_z, close_b = 0, plus, minus, sound, mute,
+exit_g, go_menu};
 
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0,
 back = 0, exit_b};
@@ -172,7 +173,7 @@ void fill_scene_defeat(game_scene_t defeat);
 //gameloop//
 
 //game_change.c
-void game_change(game_stat_t *stat, game_scene_t *scene);
+void game_change(game_stat_t *stat, game_scene_t *scene, sfRenderWindow *);
 
 //objs_interaction.c
 void enemy_animation(game_object_t *objs, game_stat_t *stats);
@@ -192,7 +193,13 @@ void scene_selection(game_stat_t *stat, game_scene_t *scene);
 void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
 
 //buttons_interaction.c
-void button_start(game_button_t *buttons, game_stat_t *stats, int current);
+void button_resume(game_button_t *buttons, game_stat_t *stats);
+void button_exit_option(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
+void button_main_option(game_button_t *buttons, game_stat_t *stats);
+void button_main_win(game_button_t *buttons, game_stat_t *stats);
+void button_exit_win(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
+void button_start(game_button_t *buttons, game_stat_t *stats);
+void button_exit_menu(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
 void check_pos_start(game_button_t *buttons, game_stat_t *stats, int tmp);
 void change_buttons_state_flag(game_button_t *buttons);
 void change_buttons_state(game_button_t *buttons);
@@ -204,7 +211,7 @@ void t2_menu_bis(game_button_t *buttons, int tmp);
 void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
 void flags_activation(game_button_t *buttons, game_stat_t *stats);
 void flags_activation_bis(game_button_t *buttons, game_stat_t *stats);
-void buttons_activation(game_button_t *buttons, game_stat_t *stats);
+void buttons_activation(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
 void buttons_animation(game_button_t *buttons);
 void buttons_animation_bis(game_button_t *buttons);
 void t1_menu_bis(game_button_t *buttons, int tmp);
@@ -221,4 +228,5 @@ void play_loose_win_sounds(int current, game_scene_t *scene);
 //enemy_get_damaged.c
 void enemies_get_damaged(game_button_t *buttons,
 game_object_t *objs, game_stat_t *stats);
+
 #endif /* DEFENDER */

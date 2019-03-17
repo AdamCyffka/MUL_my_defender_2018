@@ -37,11 +37,11 @@ game_stat_t *stat)
     }
 }
 
-void game_change(game_stat_t *stats, game_scene_t *scene)
+void game_change(game_stat_t *stats, game_scene_t *scene, sfRenderWindow *window)
 {
     objs_movement(scene[stats->current].objs, stats,
     scene[stats->current].buttons, scene[stats->current].sounds);
-    buttons_activation(scene[stats->current].buttons, stats);
+    buttons_activation(scene[stats->current].buttons, stats, window);
     if (stats->current >= wave1 && stats->current <= wave4) {
         buttons_animation(scene[stats->current].buttons);
         enemies_get_damaged(scene[stats->current].buttons,

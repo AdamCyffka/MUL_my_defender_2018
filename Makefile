@@ -32,6 +32,7 @@ SRCS	= 	src/main.c							\
 			src/gameloop/buttons_interaction2.c	\
 			src/gameloop/buttons_interaction3.c	\
 			src/gameloop/buttons_interaction4.c	\
+			src/gameloop/buttons_interaction5.c	\
 			src/gameloop/draw_scene.c			\
 			src/gameloop/sound_play.c			\
 			src/gameloop/enemy_get_damaged.c

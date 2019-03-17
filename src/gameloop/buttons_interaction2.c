@@ -7,88 +7,50 @@
 
 #include "defender.h"
 
-void t3_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
+void button_exit_menu(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window)
 {
-    int tmp2 = 0;
-
-    t3_menu_bis(buttons, tmp);
-    sfRectangleShape_setPosition(buttons[sell].shape, buttons[sell].position);
-    sfRectangleShape_setPosition(buttons[speed].shape,
-    buttons[speed].position);
-    sfRectangleShape_setPosition(buttons[damage].shape,
-    buttons[damage].position);
-    for (tmp2 = sell; tmp2 <= damage; tmp2++) {
-        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
-        stats->cursorpos.x <= buttons[tmp2].position.x + 85 &&
-        stats->cursorpos.y >= buttons[tmp2].position.y + 15 &&
-        stats->cursorpos.y <= buttons[tmp2].position.y + 85) {
-            buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
-            break;
-        } else
-            buttons[tmp2].state = idle;
+    if (stats->cursorpos.x >= buttons[exit_b].position.x &&
+    stats->cursorpos.x <= buttons[exit_b].position.x + 190 &&
+    stats->cursorpos.y >= buttons[exit_b].position.y &&
+    stats->cursorpos.y <= buttons[exit_b].position.y + 70)
+        buttons[exit_b].state = (stats->_pressed == true) ? pressed : idle;
+    if (buttons[exit_b].state == pressed) {
+        sfRenderWindow_close(window);
+        buttons[exit_b].state = idle;
     }
 }
 
-void t3_menu_bis(game_button_t *buttons, int tmp)
+void button_start(game_button_t *buttons, game_stat_t *stats)
 {
-    buttons[sell].position = (sfVector2f) {buttons[tmp].position.x - 75,
-    buttons[tmp].position.y - 75};
-    buttons[speed].position = (sfVector2f) {buttons[tmp].position.x,
-    buttons[tmp].position.y - 75};
-    buttons[damage].position = (sfVector2f) {buttons[tmp].position.x + 75,
-    buttons[tmp].position.y - 75};
-}
-
-void t2_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
-{
-    int tmp2 = 0;
-
-    t2_menu_bis(buttons, tmp);
-    sfRectangleShape_setPosition(buttons[sell].shape, buttons[sell].position);
-    sfRectangleShape_setPosition(buttons[speed].shape,
-    buttons[speed].position);
-    sfRectangleShape_setPosition(buttons[damage].shape,
-    buttons[damage].position);
-    for (tmp2 = sell; tmp2 <= damage; tmp2++) {
-        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
-        stats->cursorpos.x <= buttons[tmp2].position.x + 85 &&
-        stats->cursorpos.y >= buttons[tmp2].position.y + 15 &&
-        stats->cursorpos.y <= buttons[tmp2].position.y + 85) {
-            buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
-            break;
-        } else
-            buttons[tmp2].state = idle;
+    if (stats->cursorpos.x >= buttons[start_b].position.x &&
+    stats->cursorpos.x <= buttons[start_b].position.x + 190 &&
+    stats->cursorpos.y >= buttons[start_b].position.y &&
+    stats->cursorpos.y <= buttons[start_b].position.y + 70)
+        buttons[start_b].state = (stats->_pressed == true) ? pressed : idle;
+    if (buttons[start_b].state == pressed) {
+        stats->current++;
+        buttons[start_b].state = idle;
     }
 }
 
-void t2_menu_bis(game_button_t *buttons, int tmp)
+
+void check_pressed(game_button_t *buttons)
 {
-    buttons[sell].position = (sfVector2f) {buttons[tmp].position.x - 75,
-    buttons[tmp].position.y - 75};
-    buttons[speed].position = (sfVector2f) {buttons[tmp].position.x,
-    buttons[tmp].position.y - 75};
-    buttons[damage].position = (sfVector2f) {buttons[tmp].position.x + 75,
-    buttons[tmp].position.y - 75};
+    int tmp = flag1;
+    for (; tmp <= option; tmp++) {
+        if (buttons[tmp].state == pressed)
+            break;
+    }
+    if (tmp == 13)
+        for (int tmp2 = t1; tmp2 <= trap; tmp2++) {
+            buttons[tmp2].position = (sfVector2f) {-500, -500};
+            sfRectangleShape_setPosition(buttons[tmp2].shape,
+            buttons[tmp2].position);
+        }
 }
 
-void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp)
+void change_buttons_state(game_button_t *buttons)
 {
-    int tmp2 = 0;
-
-    t1_menu_bis(buttons, tmp);
-    sfRectangleShape_setPosition(buttons[sell].shape, buttons[sell].position);
-    sfRectangleShape_setPosition(buttons[speed].shape,
-    buttons[speed].position);
-    sfRectangleShape_setPosition(buttons[damage].shape,
-    buttons[damage].position);
-    for (tmp2 = sell; tmp2 <= damage; tmp2++) {
-        if (stats->cursorpos.x >= buttons[tmp2].position.x + 15 &&
-        stats->cursorpos.x <= buttons[tmp2].position.x + 85 &&
-        stats->cursorpos.y >= buttons[tmp2].position.y + 15 &&
-        stats->cursorpos.y <= buttons[tmp2].position.y + 85) {
-            buttons[tmp2].state = (stats->_pressed == true) ? pressed : hover;
-            break;
-        } else
-            buttons[tmp2].state = idle;
-    }
+    for (int tmp = flag1; tmp <= option; tmp++)
+        buttons[tmp].state = idle;
 }

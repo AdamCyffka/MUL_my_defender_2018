@@ -9,9 +9,9 @@
 
 void fill_scene_wave0b(game_scene_t wave0)
 {
-    wave0.buttons[flag4] = new_button("assets/flag.png", (sfVector2f) {0, 0},
+    wave0.buttons[flag4] = new_button("assets/flag.png", (sfVector2f) {-100, -100},
     (sfIntRect) {0, 0, 100, 100});
-    wave0.buttons[flag5] = new_button("assets/flag.png", (sfVector2f) {0, 0},
+    wave0.buttons[flag5] = new_button("assets/flag.png", (sfVector2f) {-100, -100},
     (sfIntRect) {0, 0, 100, 100});
     wave0.texts[money_txt] = new_text("assets/font.ttf", "0",
     (sfVector2f) {425, 45}, 16);
@@ -36,11 +36,11 @@ void fill_scene_wave0a(game_scene_t wave0)
     wave0.objs[cursor] = new_object("assets/cursor.png", (sfVector2f) {0, 0},
     (sfIntRect) {25, 50, 50, 50}, 0);
     wave0.sounds[bg_s] = new_sound("assets/backgroundmusic.ogg", sfTrue, 100);
-    wave0.buttons[flag1] = new_button("assets/flag.png", (sfVector2f) {0, 0},
+    wave0.buttons[flag1] = new_button("assets/flag.png", (sfVector2f) {-100, -100},
     (sfIntRect) {0, 0, 100, 100});
-    wave0.buttons[flag2] = new_button("assets/flag.png", (sfVector2f) {0, 0},
+    wave0.buttons[flag2] = new_button("assets/flag.png", (sfVector2f) {-100, -100},
     (sfIntRect) {0, 0, 100, 100});
-    wave0.buttons[flag3] = new_button("assets/flag.png", (sfVector2f) {0, 0},
+    wave0.buttons[flag3] = new_button("assets/flag.png", (sfVector2f) {-100, -100},
     (sfIntRect) {0, 0, 100, 100});
     fill_scene_wave0b(wave0);
 }

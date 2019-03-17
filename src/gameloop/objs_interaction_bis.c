@@ -7,6 +7,16 @@
 
 #include "defender.h"
 
+void objs_movement_bis(game_object_t *objs, game_stat_t *stats)
+{
+    if (stats->current == options)
+        sfSprite_setPosition(objs[cursor_z].sprite, stats->cursorpos);
+    if (stats->current == menu)
+        sfSprite_setPosition(objs[cursor_o].sprite, stats->cursorpos);
+    if (stats->current >= wave0 && stats->current <= wave4)
+        sfSprite_setPosition(objs[cursor].sprite, stats->cursorpos);
+}
+
 void objs_movement(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons, game_sound_t *sounds)
 {
@@ -29,14 +39,4 @@ game_button_t *buttons, game_sound_t *sounds)
             sfClock_restart(stats->clock_arrow);
         }
     }
-}
-
-void objs_movement_bis(game_object_t *objs, game_stat_t *stats)
-{
-    if (stats->current == option)
-        sfSprite_setPosition(objs[cursor_z].sprite, stats->cursorpos);
-    if (stats->current == menu)
-        sfSprite_setPosition(objs[cursor_o].sprite, stats->cursorpos);
-    if (stats->current >= wave0 && stats->current <= wave4)
-        sfSprite_setPosition(objs[cursor].sprite, stats->cursorpos);
 }

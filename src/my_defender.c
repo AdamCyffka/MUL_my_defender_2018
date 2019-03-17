@@ -33,7 +33,8 @@ void analyse_keyboard(sfRenderWindow *window, game_stat_t *stats)
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(escape) == sfTrue && seconds > 0.5) {
-        stats->previous = stats->current;
+        stats->previous = (stats->current == options) ?
+        stats->previous : stats->current;
         stats->current = (stats->current == options) ?
         stats->previous : options;
         sfClock_restart(stats->clock_pause);
@@ -57,7 +58,7 @@ int create_scene(game_scene_t *scene)
     fill_scene_wave3a(scene[wave3]);
     scene[wave4] = new_scene(36, 7, 13, 3);
     fill_scene_wave4a(scene[wave4]);
-    scene[options] = new_scene(2, 0, 5, 0);
+    scene[options] = new_scene(2, 0, 7, 0);
     fill_scene_option(scene[options]);
     scene[victory] = new_scene(1, 1, 2, 0);
     fill_scene_victory(scene[victory]);
@@ -86,7 +87,7 @@ int my_defender(void)
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         scene_selection(&stat, scene);
-        game_change(&stat, scene);
+        game_change(&stat, scene, window);
         draw_scene(scene[stat.current], window, stat.current);
         while (sfRenderWindow_pollEvent(window, &event))
             analyse_events(window, event, &stat);

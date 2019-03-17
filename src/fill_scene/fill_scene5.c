@@ -41,16 +41,16 @@ void fill_scene_wave4d(game_scene_t wave4)
     (sfVector2f) {840, 700}, (sfIntRect) {0, 0, 20, 20}, 0);
     wave4.objs[arrow5] = new_object("assets/arrow.png",
     (sfVector2f) {1240, 700}, (sfIntRect) {0, 0, 20, 20}, 0);
-    wave4.objs[trap1] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 70, 70}, 0);
-    wave4.objs[trap2] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 70, 70}, 0);
-    wave4.objs[trap3] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 70, 70}, 0);
-    wave4.objs[trap4] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 70, 70}, 0);
-    wave4.objs[trap5] = new_object("assets/trap.png", (sfVector2f) {0, 0},
-    (sfIntRect) {0, 0, 70, 70}, 0);
+    wave4.objs[trap1] = new_object("assets/trap.png",
+    (sfVector2f) {-100, -100}, (sfIntRect) {0, 0, 70, 70}, 0);
+    wave4.objs[trap2] = new_object("assets/trap.png",
+    (sfVector2f) {-100, -100}, (sfIntRect) {0, 0, 70, 70}, 0);
+    wave4.objs[trap3] = new_object("assets/trap.png",
+    (sfVector2f) {-100, -100}, (sfIntRect) {0, 0, 70, 70}, 0);
+    wave4.objs[trap4] = new_object("assets/trap.png",
+    (sfVector2f) {-100, -100}, (sfIntRect) {0, 0, 70, 70}, 0);
+    wave4.objs[trap5] = new_object("assets/trap.png",
+    (sfVector2f) {-100, -100}, (sfIntRect) {0, 0, 70, 70}, 0);
     fill_scene_wave4e(wave4);
 }
 
