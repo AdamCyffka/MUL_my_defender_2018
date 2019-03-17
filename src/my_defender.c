@@ -86,7 +86,7 @@ int my_defender(void)
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         scene_selection(&stat, scene);
-        game_change(&stat, scene, window);
+        game_change(&stat, scene);
         draw_scene(scene[stat.current], window, stat.current);
         while (sfRenderWindow_pollEvent(window, &event))
             analyse_events(window, event, &stat);

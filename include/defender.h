@@ -166,8 +166,7 @@ void fill_scene_defeat(game_scene_t defeat);
 //gameloop//
 
 //game_change.c
-void game_change(game_stat_t *stat, game_scene_t *scene,
-sfRenderWindow *window);
+void game_change(game_stat_t *stat, game_scene_t *scene);
 
 //objs_interaction.c
 void enemy_animation(game_object_t *objs, game_stat_t *stats);
@@ -176,10 +175,8 @@ game_button_t *buttons, game_sound_t *sounds);
 void move_enemies(game_object_t *objs, game_stat_t *stats);
 void move_arrows(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons, game_sound_t *sounds);
-void move_trap(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons);
-void activate_trap(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons);
+void move_trap(game_object_t *objs, game_button_t *buttons);
+void activate_trap(game_object_t *objs, game_stat_t *stats);
 void objs_movement_bis(game_object_t *objs, game_stat_t *stats);
 
 //scene_selection.c

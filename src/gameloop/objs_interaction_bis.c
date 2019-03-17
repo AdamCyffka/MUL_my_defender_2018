@@ -17,8 +17,8 @@ game_button_t *buttons, game_sound_t *sounds)
 
     objs_movement_bis(objs, stats);
     if (stats->current >= wave1 && stats->current <= wave4) {
-        move_trap(objs, stats, buttons);
-        activate_trap(objs, stats, buttons);
+        move_trap(objs, buttons);
+        activate_trap(objs, stats);
         if (seconds > 0.1) {
             move_enemies(objs, stats);
             enemy_animation(objs, stats);
