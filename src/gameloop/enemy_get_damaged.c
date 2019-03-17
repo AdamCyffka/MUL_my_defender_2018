@@ -7,13 +7,22 @@
 
 #include "defender.h"
 
-void enemies_get_damaged(game_button_t *buttons,
-game_object_t *objs, game_stat_t *stats)
+void enemies_get_damaged(game_object_t *objs, game_stat_t *stats)
+{
+    for (int tmp = enemy1; tmp < enemy1 + 5 * (stats->current - 1); tmp++) {
+        enemies_get_damaged2(objs, stats);
+        enemies_get_damaged3(objs, stats);
+        if (objs[tmp].hp <= 0) {
+            objs[tmp].state = dead;
+            sfSprite_setPosition(objs[tmp].sprite, (sfVector2f) {-100, -100});
+        }
+    }
+}
+
+void enemies_get_damaged2(game_object_t *objs, game_stat_t *stats)
 {
     sfTime time = sfClock_getElapsedTime(stats->clock_damage1);
     float seconds = time.microseconds / 1000000.0;
-    sfTime time2 = sfClock_getElapsedTime(stats->clock_damage2);
-    float seconds2 = time2.microseconds / 1000000.0;
 
     for (int tmp = enemy1; tmp < enemy1 + 5 * (stats->current - 1); tmp++) {
         for (int tmp2 = arrow1; tmp2 <= arrow5; tmp2++) {
@@ -28,6 +37,15 @@ game_object_t *objs, game_stat_t *stats)
                 }
             }
         }
+    }
+}
+
+void enemies_get_damaged3(game_object_t *objs, game_stat_t *stats)
+{
+    sfTime time2 = sfClock_getElapsedTime(stats->clock_damage2);
+    float seconds2 = time2.microseconds / 1000000.0;
+
+    for (int tmp = enemy1; tmp < enemy1 + 5 * (stats->current - 1); tmp++) {
         for (int tmp2 = trap1; tmp2 <= trap5; tmp2++) {
             if (objs[tmp].position.x < objs[tmp2].position.x + 70 &&
             objs[tmp].position.x + 23 > objs[tmp2].position.x &&
@@ -39,10 +57,6 @@ game_object_t *objs, game_stat_t *stats)
                     sfClock_restart(stats->clock_damage2);
                 }
             }
-        }        
-        if (objs[tmp].hp <= 0) {
-            objs[tmp].state = dead;
-            sfSprite_setPosition(objs[tmp].sprite, (sfVector2f) {-100, -100});
         }
     }
 }

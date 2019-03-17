@@ -40,3 +40,11 @@ game_button_t *buttons, game_sound_t *sounds)
         }
     }
 }
+
+void enemy_animation(game_object_t *objs, game_stat_t *stats)
+{
+    for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1)); tmp++) {
+        objs[tmp].rect.left += (objs[tmp].rect.left == 69) ? -69 : 23;
+        sfSprite_setTextureRect(objs[tmp].sprite, objs[tmp].rect);
+    }
+}
