@@ -23,7 +23,7 @@ void fill_scene_wave0b(game_scene_t wave0)
 
 void fill_scene_wave0a(game_scene_t wave0)
 {
-    wave0.objs[map] = new_object("assets/intro.png", (sfVector2f) {0, 0},
+    wave0.objs[map] = new_object("assets/intro.png", (sfVector2f) {0, -32},
     (sfIntRect) {0, 0, 1920, 1080}, 0);
     wave0.objs[heart] = new_object("assets/buttonheart.png",
     (sfVector2f) {350, 900}, (sfIntRect) {0, 0, 100, 100}, 0);

@@ -43,7 +43,7 @@ enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 
 enum txt {money_txt, wave_txt, life_txt};
 
-enum option {option_o, close_b = 0, plus, minus, sound, mute};
+enum option {cursor_z, option_o, close_b = 0, plus, minus, sound, mute};
 
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0,
 back = 0, exit_b};
@@ -112,6 +112,12 @@ typedef struct game_scene {
     game_text_t *texts;
     int *how_many;
 } game_scene_t;
+
+typedef struct window_s {
+    sfRenderWindow *window;
+	sfVideoMode video;
+	sfEvent event;
+} window_t;
 
 //main.c
 int main(int ac, char **av, char **env);

@@ -57,7 +57,7 @@ int create_scene(game_scene_t *scene)
     fill_scene_wave3a(scene[wave3]);
     scene[wave4] = new_scene(36, 7, 13, 3);
     fill_scene_wave4a(scene[wave4]);
-    scene[options] = new_scene(1, 0, 5, 0);
+    scene[options] = new_scene(2, 0, 5, 0);
     fill_scene_option(scene[options]);
     scene[victory] = new_scene(1, 1, 2, 0);
     fill_scene_victory(scene[victory]);

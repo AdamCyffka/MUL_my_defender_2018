@@ -33,6 +33,8 @@ game_button_t *buttons, game_sound_t *sounds)
 
 void objs_movement_bis(game_object_t *objs, game_stat_t *stats)
 {
+    if (stats->current == option)
+        sfSprite_setPosition(objs[cursor_z].sprite, stats->cursorpos);
     if (stats->current == menu)
         sfSprite_setPosition(objs[cursor_o].sprite, stats->cursorpos);
     if (stats->current >= wave0 && stats->current <= wave4)
