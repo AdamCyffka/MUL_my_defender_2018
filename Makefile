@@ -13,6 +13,7 @@ RM		= 	rm -f
 
 SRCS	= 	src/main.c							\
 			src/my_defender.c 					\
+			src/init_window.c 					\
 			src/make_game.c						\
 			src/destroy_scene.c					\
 			src/fill_scene/fill_scene0to1.c		\

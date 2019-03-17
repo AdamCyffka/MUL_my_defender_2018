@@ -67,11 +67,8 @@ int create_scene(game_scene_t *scene)
     return (0);
 }
 
-int my_defender(void)
+int my_defender(window_t *params)
 {
-    sfVideoMode window_settings = {1920, 1080, 32};
-    sfRenderWindow *window = sfRenderWindow_create(window_settings,
-    "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
     game_stat_t stat = {menu, 0, enemy1, 5, 200, false, false,
     (sfVector2f) {0, 0},
@@ -80,18 +77,15 @@ int my_defender(void)
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
 
     create_scene(scene);
-    sfRenderWindow_setFramerateLimit(window, 60);
-    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
-    sfMusic_setLoop(scene[wave1].sounds[bg_s].music, sfTrue);
-    sfMusic_play(scene[wave1].sounds[bg_s].music);
-    while (sfRenderWindow_isOpen(window)) {
-        sfRenderWindow_clear(window, sfBlack);
+    init_window(params, scene);
+    while (sfRenderWindow_isOpen(params->window)) {
+        sfRenderWindow_clear(params->window, sfBlack);
         scene_selection(&stat, scene);
-        game_change(&stat, scene, window);
-        draw_scene(scene[stat.current], window, stat.current);
-        while (sfRenderWindow_pollEvent(window, &event))
-            analyse_events(window, event, &stat);
-        sfRenderWindow_display(window);
+        game_change(&stat, scene, params->window);
+        draw_scene(scene[stat.current], params->window, stat.current);
+        while (sfRenderWindow_pollEvent(params->window, &event))
+            analyse_events(params->window, event, &stat);
+        sfRenderWindow_display(params->window);
     }
     destroy_all(scene);
     return (0);

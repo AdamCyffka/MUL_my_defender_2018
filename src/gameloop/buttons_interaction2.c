@@ -7,7 +7,8 @@
 
 #include "defender.h"
 
-void button_exit_menu(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window)
+void button_exit_menu(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window)
 {
     if (stats->cursorpos.x >= buttons[exit_b].position.x &&
     stats->cursorpos.x <= buttons[exit_b].position.x + 190 &&
@@ -32,7 +33,6 @@ void button_start(game_button_t *buttons, game_stat_t *stats)
         buttons[start_b].state = idle;
     }
 }
-
 
 void check_pressed(game_button_t *buttons)
 {

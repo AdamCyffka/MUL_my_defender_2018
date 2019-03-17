@@ -37,7 +37,8 @@ game_stat_t *stat)
     }
 }
 
-void game_change(game_stat_t *stats, game_scene_t *scene, sfRenderWindow *window)
+void game_change(game_stat_t *stats, game_scene_t *scene,
+sfRenderWindow *window)
 {
     objs_movement(scene[stats->current].objs, stats,
     scene[stats->current].buttons, scene[stats->current].sounds);

@@ -114,11 +114,17 @@ typedef struct game_scene {
     int *how_many;
 } game_scene_t;
 
+typedef struct window {
+    sfRenderWindow* window;
+} window_t;
+
 //main.c
 int main(int ac, char **av, char **env);
 
 //my_defender.c
-int my_defender(void);
+int my_defender(window_t *params);
+void init_params(window_t *params);
+void init_window(window_t *params, game_scene_t *scene);
 void analyse_keyboard(sfRenderWindow *window, game_stat_t *stats);
 
 //make_scene.c
@@ -189,12 +195,15 @@ void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
 
 //buttons_interaction.c
 void button_resume(game_button_t *buttons, game_stat_t *stats);
-void button_exit_option(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
+void button_exit_option(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window);
 void button_main_option(game_button_t *buttons, game_stat_t *stats);
 void button_main_win(game_button_t *buttons, game_stat_t *stats);
-void button_exit_win(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
+void button_exit_win(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window);
 void button_start(game_button_t *buttons, game_stat_t *stats);
-void button_exit_menu(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
+void button_exit_menu(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window);
 void check_pos_start(game_button_t *buttons, game_stat_t *stats, int tmp);
 void change_buttons_state_flag(game_button_t *buttons);
 void change_buttons_state(game_button_t *buttons);
@@ -206,7 +215,8 @@ void t2_menu_bis(game_button_t *buttons, int tmp);
 void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
 void flags_activation(game_button_t *buttons, game_stat_t *stats);
 void flags_activation_bis(game_button_t *buttons, game_stat_t *stats);
-void buttons_activation(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window);
+void buttons_activation(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window);
 void buttons_animation(game_button_t *buttons);
 void buttons_animation_bis(game_button_t *buttons);
 void t1_menu_bis(game_button_t *buttons, int tmp);

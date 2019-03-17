@@ -47,7 +47,8 @@ void flags_activation(game_button_t *buttons, game_stat_t *stats)
     }
 }
 
-void buttons_activation(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window)
+void buttons_activation(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window)
 {
     if (stats->current >= wave1 && stats->current <= wave4)
         flags_activation(buttons, stats);

@@ -21,6 +21,8 @@ void help(void)
 
 int main(int ac, char **av, char **env)
 {
+    window_t params;
+
     if (*env == NULL)
         return (84);
     if (ac == 2 && av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0')
@@ -28,7 +30,9 @@ int main(int ac, char **av, char **env)
     else if (ac != 1) {
         my_printf("Usage : my_defender -h\n");
         return (84);
-    } else
-        return (my_defender());
+    } else {
+        init_params(&params);
+        my_defender(&params);
+    }
     return (0);
 }

@@ -7,7 +7,8 @@
 
 #include "defender.h"
 
-void button_exit_win(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window)
+void button_exit_win(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window)
 {
     if (stats->cursorpos.x >= buttons[exit_b].position.x &&
     stats->cursorpos.x <= buttons[exit_b].position.x + 190 &&
@@ -34,7 +35,6 @@ void button_main_win(game_button_t *buttons, game_stat_t *stats)
     }
 }
 
-
 void button_main_option(game_button_t *buttons, game_stat_t *stats)
 {
     if (stats->cursorpos.x >= buttons[go_menu].position.x &&
@@ -49,7 +49,8 @@ void button_main_option(game_button_t *buttons, game_stat_t *stats)
     }
 }
 
-void button_exit_option(game_button_t *buttons, game_stat_t *stats, sfRenderWindow *window)
+void button_exit_option(game_button_t *buttons, game_stat_t *stats,
+sfRenderWindow *window)
 {
     if (stats->cursorpos.x >= buttons[exit_g].position.x &&
     stats->cursorpos.x <= buttons[exit_g].position.x + 190 &&
