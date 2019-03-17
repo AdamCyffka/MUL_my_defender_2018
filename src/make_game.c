@@ -81,7 +81,7 @@ game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons, int nb_texts)
     new_scene.how_many[0] = nb_objs;
     new_scene.how_many[1] = nb_musics;
     new_scene.how_many[2] = nb_buttons;
-    new_scene.how_many[3] = nb_texts; 
+    new_scene.how_many[3] = nb_texts;
 
     return (new_scene);
 }

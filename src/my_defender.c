@@ -9,12 +9,6 @@
 
 void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
 {
-    sfKeyCode q = sfKeyQ;
-    sfKeyCode enter = sfKeyReturn;
-    sfKeyCode escape = sfKeyEscape;
-    sfTime time = sfClock_getElapsedTime(stats->clock_pause);
-    float seconds = time.microseconds / 1000000.0;
-
     if (event.type == sfEvtMouseButtonPressed)
         stats->_pressed = true;
     if (event.type == sfEvtMouseButtonReleased)
@@ -25,11 +19,23 @@ void analyse_events(sfRenderWindow *window, sfEvent event, game_stat_t *stats)
     }
     if (event.type == sfEvtClosed)
         sfRenderWindow_close(window);
+    analyse_keyboard(window, stats);
+}
+
+void analyse_keyboard(sfRenderWindow *window, game_stat_t *stats)
+{
+    sfKeyCode q = sfKeyQ;
+    sfKeyCode enter = sfKeyReturn;
+    sfKeyCode escape = sfKeyEscape;
+    sfTime time = sfClock_getElapsedTime(stats->clock_pause);
+    float seconds = time.microseconds / 1000000.0;
+
     if (sfKeyboard_isKeyPressed(q) == sfTrue)
         sfRenderWindow_close(window);
     if (sfKeyboard_isKeyPressed(escape) == sfTrue && seconds > 0.5) {
         stats->previous = stats->current;
-        stats->current = (stats->current == options) ? stats->previous : options;
+        stats->current = (stats->current == options) ?
+        stats->previous : options;
         sfClock_restart(stats->clock_pause);
     }
     if (sfKeyboard_isKeyPressed(enter) == sfTrue && (stats->current == menu
@@ -51,7 +57,7 @@ int create_scene(game_scene_t *scene)
     fill_scene_wave3a(scene[wave3]);
     scene[wave4] = new_scene(36, 7, 13, 3);
     fill_scene_wave4a(scene[wave4]);
-    scene[options] = new_scene(1, 0, 5, 0);
+    scene[options] = new_scene(2, 0, 5, 0);
     fill_scene_option(scene[options]);
     scene[victory] = new_scene(1, 1, 2, 0);
     fill_scene_victory(scene[victory]);
@@ -66,7 +72,8 @@ int my_defender(void)
     sfRenderWindow *window = sfRenderWindow_create(window_settings,
     "Kingdom Defense", sfClose | sfResize, NULL);
     sfEvent event;
-    game_stat_t stat = {options, 0, enemy1, 5, 200, false, false,(sfVector2f) {0, 0},
+    game_stat_t stat = {menu, 0, enemy1, 5, 200, false, false,
+    (sfVector2f) {0, 0},
     sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create(),
     sfClock_create(), sfClock_create(), sfClock_create()};
     game_scene_t *scene = malloc(sizeof(game_scene_t) * 9);
@@ -79,7 +86,7 @@ int my_defender(void)
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         scene_selection(&stat, scene);
-        game_change(&stat, scene, window);
+        game_change(&stat, scene);
         draw_scene(scene[stat.current], window, stat.current);
         while (sfRenderWindow_pollEvent(window, &event))
             analyse_events(window, event, &stat);

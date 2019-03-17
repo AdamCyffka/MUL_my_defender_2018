@@ -9,8 +9,6 @@
 
 void fill_scene_wave3e(game_scene_t wave3)
 {
-    wave3.buttons[flag2] = new_button("assets/flag.png",
-    (sfVector2f) {750, 310}, (sfIntRect) {0, 0, 100, 100});
     wave3.buttons[flag3] = new_button("assets/flag.png",
     (sfVector2f) {400, 650}, (sfIntRect) {0, 0, 100, 100});
     wave3.buttons[flag4] = new_button("assets/flag.png",

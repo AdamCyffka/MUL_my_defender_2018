@@ -24,7 +24,6 @@ game_object_t *objs, game_stat_t *stats)
             objs[tmp].state == alive) {
                 if (seconds > 0.3) {
                     objs[tmp].hp--;
-                    printf("Enemy %i, hit by tower %i, hp = %i\n", tmp-15, tmp2-5, objs[tmp].hp);
                     sfClock_restart(stats->clock_damage1);
                 }
             }
@@ -37,7 +36,6 @@ game_object_t *objs, game_stat_t *stats)
             objs[tmp].state == alive && objs[tmp2].rect.left == 70) {
                 if (seconds2 > 2) {
                     objs[tmp].hp--;
-                    printf("Enemy %i, hit by trap %i, hp = %i\n", tmp-15, tmp2-10, objs[tmp].hp);
                     sfClock_restart(stats->clock_damage2);
                 }
             }

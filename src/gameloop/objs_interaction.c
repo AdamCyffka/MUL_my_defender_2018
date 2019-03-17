@@ -15,8 +15,7 @@ void enemy_animation(game_object_t *objs, game_stat_t *stats)
     }
 }
 
-void activate_trap(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons)
+void activate_trap(game_object_t *objs, game_stat_t *stats)
 {
     sfTime time = sfClock_getElapsedTime(stats->clock_trap);
     float seconds = time.microseconds / 1000000.0;
@@ -29,11 +28,9 @@ game_button_t *buttons)
         }
         sfClock_restart(stats->clock_trap);
     }
-
 }
 
-void move_trap(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons)
+void move_trap(game_object_t *objs, game_button_t *buttons)
 {
     for (int tmp = flag1; tmp <= flag3; tmp++) {
         if (buttons[tmp].content == tower2 || buttons[tmp].content == tower3) {

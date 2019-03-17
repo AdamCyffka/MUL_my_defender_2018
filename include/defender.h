@@ -37,11 +37,13 @@ enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10, enemy11,
 enemy12, enemy13, enemy14, enemy15, enemy16, enemy17, enemy18, enemy19,
 enemy20};
 
+enum waves0 {map2};
+
 enum sounds {bg_s, start_s, add_s, sell_s, arrow_s, limit_s, exit_s};
 
 enum txt {money_txt, wave_txt, life_txt};
 
-enum option {option_o, close_b = 0, plus, minus, sound, mute};
+enum option {cursor_z, option_o, close_b = 0, plus, minus, sound, mute};
 
 enum vict_def {victory_o, defeat_o = 0, victory_s = 0, defeat_s = 0,
 back = 0, exit_b};
@@ -111,11 +113,18 @@ typedef struct game_scene {
     int *how_many;
 } game_scene_t;
 
+typedef struct window_s {
+    sfRenderWindow *window;
+	sfVideoMode video;
+	sfEvent event;
+} window_t;
+
 //main.c
 int main(int ac, char **av, char **env);
 
 //my_defender.c
 int my_defender(void);
+void analyse_keyboard(sfRenderWindow *window, game_stat_t *stats);
 
 //make_scene.c
 game_scene_t new_scene(int nb_objs, int nb_musics, int nb_buttons,
@@ -163,8 +172,7 @@ void fill_scene_defeat(game_scene_t defeat);
 //gameloop//
 
 //game_change.c
-void game_change(game_stat_t *stat, game_scene_t *scene,
-sfRenderWindow *window);
+void game_change(game_stat_t *stat, game_scene_t *scene);
 
 //objs_interaction.c
 void enemy_animation(game_object_t *objs, game_stat_t *stats);
@@ -173,10 +181,9 @@ game_button_t *buttons, game_sound_t *sounds);
 void move_enemies(game_object_t *objs, game_stat_t *stats);
 void move_arrows(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons, game_sound_t *sounds);
-void move_trap(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons);
-void activate_trap(game_object_t *objs, game_stat_t *stats,
-game_button_t *buttons);
+void move_trap(game_object_t *objs, game_button_t *buttons);
+void activate_trap(game_object_t *objs, game_stat_t *stats);
+void objs_movement_bis(game_object_t *objs, game_stat_t *stats);
 
 //scene_selection.c
 void scene_selection(game_stat_t *stat, game_scene_t *scene);
@@ -185,11 +192,24 @@ void scene_selection(game_stat_t *stat, game_scene_t *scene);
 void draw_scene(game_scene_t scene, sfRenderWindow *window, int current);
 
 //buttons_interaction.c
-void buttons_animation(game_button_t *buttons);
-void buttons_activation(game_button_t *buttons, game_stat_t *stats);
-void choose_tower_bis(game_button_t *buttons, int tmp);
+void button_start(game_button_t *buttons, game_stat_t *stats, int current);
+void check_pos_start(game_button_t *buttons, game_stat_t *stats, int tmp);
+void change_buttons_state_flag(game_button_t *buttons);
+void change_buttons_state(game_button_t *buttons);
+void check_pressed(game_button_t *buttons);
+void t3_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
+void t3_menu_bis(game_button_t *buttons, int tmp);
+void t2_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
+void t2_menu_bis(game_button_t *buttons, int tmp);
+void t1_menu(game_button_t *buttons, game_stat_t *stats, int tmp);
+void flags_activation(game_button_t *buttons, game_stat_t *stats);
 void flags_activation_bis(game_button_t *buttons, game_stat_t *stats);
+void buttons_activation(game_button_t *buttons, game_stat_t *stats);
+void buttons_animation(game_button_t *buttons);
 void buttons_animation_bis(game_button_t *buttons);
+void t1_menu_bis(game_button_t *buttons, int tmp);
+void choose_tower(game_button_t *buttons, game_stat_t *stats, int tmp);
+void choose_tower_bis(game_button_t *buttons, int tmp);
 
 //destroy_scene.c
 void destroy_all(game_scene_t *scene);

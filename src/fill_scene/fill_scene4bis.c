@@ -19,4 +19,6 @@ void fill_scene_wave3f(game_scene_t wave3)
     (sfVector2f) {400, 115}, 16);
     wave3.texts[life_txt] = new_text("assets/font.ttf", "5",
     (sfVector2f) {470, 940}, 16);
+    wave3.buttons[flag2] = new_button("assets/flag.png",
+    (sfVector2f) {750, 310}, (sfIntRect) {0, 0, 100, 100});
 }
