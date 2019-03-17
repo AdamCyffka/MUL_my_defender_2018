@@ -7,14 +7,6 @@
 
 #include "defender.h"
 
-void enemy_animation(game_object_t *objs, game_stat_t *stats)
-{
-    for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1)); tmp++) {
-        objs[tmp].rect.left += (objs[tmp].rect.left == 69) ? -69 : 23;
-        sfSprite_setTextureRect(objs[tmp].sprite, objs[tmp].rect);
-    }
-}
-
 void activate_trap(game_object_t *objs, game_stat_t *stats)
 {
     sfTime time = sfClock_getElapsedTime(stats->clock_trap);
@@ -77,18 +69,9 @@ game_button_t *buttons, game_sound_t *sounds)
 
 void move_enemies(game_object_t *objs, game_stat_t *stats)
 {
+    move_enemies_bis(objs, stats);
     for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1)); tmp++) {
         if (objs[tmp].state == alive) {
-            objs[tmp].position.y += (objs[tmp].position.y < 480 &&
-            objs[tmp].position.x == 950) ? 5 : 0;
-            objs[tmp].position.y += (objs[tmp].position.y < 530 &&
-            objs[tmp].position.x == 800) ? 5 : 0;
-            objs[tmp].position.y += (objs[tmp].position.y < 830 &&
-            objs[tmp].position.x == 630) ? 5 : 0;
-            objs[tmp].position.y -= (objs[tmp].position.y > 742.5 &&
-            objs[tmp].position.x == 1400) ? 2.5 : 0;
-            objs[tmp].position.y -= (objs[tmp].position.y > 650 &&
-            objs[tmp].position.x == 1470) ? 2.5 : 0;
             objs[tmp].position.x -= (objs[tmp].position.x > 800 &&
             objs[tmp].position.y == 480) ? 5 : 0;
             objs[tmp].position.x -= (objs[tmp].position.x > 630 &&
@@ -102,5 +85,22 @@ void move_enemies(game_object_t *objs, game_stat_t *stats)
         && objs[tmp].state == alive)
             objs[tmp].state = atend;
     }
+}
 
+void move_enemies_bis(game_object_t *objs, game_stat_t *stats)
+{
+    for (int tmp = enemy1; tmp < enemy1 + (5 * (stats->current - 1)); tmp++) {
+        if (objs[tmp].state == alive) {
+            objs[tmp].position.y += (objs[tmp].position.y < 480 &&
+            objs[tmp].position.x == 950) ? 5 : 0;
+            objs[tmp].position.y += (objs[tmp].position.y < 530 &&
+            objs[tmp].position.x == 800) ? 5 : 0;
+            objs[tmp].position.y += (objs[tmp].position.y < 830 &&
+            objs[tmp].position.x == 630) ? 5 : 0;
+            objs[tmp].position.y -= (objs[tmp].position.y > 742.5 &&
+            objs[tmp].position.x == 1400) ? 2.5 : 0;
+            objs[tmp].position.y -= (objs[tmp].position.y > 650 &&
+            objs[tmp].position.x == 1470) ? 2.5 : 0;
+        }
+    }
 }

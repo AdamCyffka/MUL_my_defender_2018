@@ -5,8 +5,8 @@
 ** defender.h
 */
 
-#ifndef DEFENDER
-#define DEFENDER
+#ifndef DEFENDER_H_
+#define DEFENDER_H_
 
 #define bool _Bool
 #define true 1
@@ -113,12 +113,6 @@ typedef struct game_scene {
     int *how_many;
 } game_scene_t;
 
-typedef struct window_s {
-    sfRenderWindow *window;
-	sfVideoMode video;
-	sfEvent event;
-} window_t;
-
 //main.c
 int main(int ac, char **av, char **env);
 
@@ -179,6 +173,7 @@ void enemy_animation(game_object_t *objs, game_stat_t *stats);
 void objs_movement(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons, game_sound_t *sounds);
 void move_enemies(game_object_t *objs, game_stat_t *stats);
+void move_enemies_bis(game_object_t *objs, game_stat_t *stats);
 void move_arrows(game_object_t *objs, game_stat_t *stats,
 game_button_t *buttons, game_sound_t *sounds);
 void move_trap(game_object_t *objs, game_button_t *buttons);
@@ -221,4 +216,9 @@ void play_loose_win_sounds(int current, game_scene_t *scene);
 //enemy_get_damaged.c
 void enemies_get_damaged(game_button_t *buttons,
 game_object_t *objs, game_stat_t *stats);
-#endif /* DEFENDER */
+void enemies_get_damaged2(game_button_t *buttons,
+game_object_t *objs, game_stat_t *stats);
+void enemies_get_damaged3(game_button_t *buttons,
+game_object_t *objs, game_stat_t *stats);
+
+#endif /* DEFENDER_H_ */
