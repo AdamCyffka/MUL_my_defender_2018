@@ -34,7 +34,7 @@ void fill_scene_option(game_scene_t option)
     option.objs[cursor_z] = new_object("assets/cursor.png",
     (sfVector2f) {0, 0}, (sfIntRect) {25, 50, 50, 50}, 0);
     option.objs[option_o] = new_object("assets/option.png",
-    (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
+    (sfVector2f) {0, -10}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     option.buttons[close_b] = new_button("assets/close.png",
     (sfVector2f) {330, 0}, (sfIntRect) {0, 0, 100, 100});
     option.buttons[plus] = new_button("assets/plus.png",
