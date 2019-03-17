@@ -60,9 +60,9 @@ int create_scene(game_scene_t *scene)
     fill_scene_wave4a(scene[wave4]);
     scene[options] = new_scene(2, 0, 7, 0);
     fill_scene_option(scene[options]);
-    scene[victory] = new_scene(1, 1, 2, 0);
+    scene[victory] = new_scene(2, 1, 2, 0);
     fill_scene_victory(scene[victory]);
-    scene[defeat] = new_scene(1, 1, 2, 0);
+    scene[defeat] = new_scene(2, 1, 2, 0);
     fill_scene_defeat(scene[defeat]);
     return (0);
 }
@@ -70,7 +70,7 @@ int create_scene(game_scene_t *scene)
 int my_defender(window_t *params)
 {
     sfEvent event;
-    game_stat_t stat = {menu, 0, enemy1, 5, 200, false, false,
+    game_stat_t stat = {defeat, 0, enemy1, 5, 200, false, false,
     (sfVector2f) {0, 0},
     sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create(),
     sfClock_create(), sfClock_create(), sfClock_create()};

@@ -23,6 +23,6 @@ void draw_scene(game_scene_t scene, sfRenderWindow *window, int current)
         sfRenderWindow_drawSprite(window, scene.objs[cursor].sprite, NULL);
     if (current == menu)
         sfRenderWindow_drawSprite(window, scene.objs[cursor_o].sprite, NULL);
-    if (current == options)
+    if (current >= options && current <= defeat)
         sfRenderWindow_drawSprite(window, scene.objs[cursor_z].sprite, NULL);
 }

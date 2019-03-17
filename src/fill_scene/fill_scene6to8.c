@@ -9,6 +9,8 @@
 
 void fill_scene_defeat(game_scene_t defeat)
 {
+    defeat.objs[cursor_z] = new_object("assets/cursor.png",
+    (sfVector2f) {0, 0}, (sfIntRect) {25, 50, 50, 50}, 0);
     defeat.objs[defeat_o] = new_object("assets/defeat.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     defeat.sounds[defeat_s] = new_sound("assets/defeat.ogg", sfFalse, 100);
@@ -20,6 +22,8 @@ void fill_scene_defeat(game_scene_t defeat)
 
 void fill_scene_victory(game_scene_t victory)
 {
+    victory.objs[cursor_z] = new_object("assets/cursor.png",
+    (sfVector2f) {0, 0}, (sfIntRect) {25, 50, 50, 50}, 0);
     victory.objs[victory_o] = new_object("assets/victory.png",
     (sfVector2f) {0, 0}, (sfIntRect) {0, 0, 1920, 1080}, 0);
     victory.sounds[victory_s] = new_sound("assets/victory.ogg", sfFalse, 100);

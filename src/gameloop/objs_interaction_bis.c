@@ -9,7 +9,7 @@
 
 void objs_movement_bis(game_object_t *objs, game_stat_t *stats)
 {
-    if (stats->current == options)
+    if (stats->current >= options && stats->current <= defeat)
         sfSprite_setPosition(objs[cursor_z].sprite, stats->cursorpos);
     if (stats->current == menu)
         sfSprite_setPosition(objs[cursor_o].sprite, stats->cursorpos);
