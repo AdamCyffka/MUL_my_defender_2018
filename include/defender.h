@@ -214,11 +214,8 @@ void play_arrow_sound(game_sound_t *sounds, game_stat_t *stats);
 void play_loose_win_sounds(int current, game_scene_t *scene);
 
 //enemy_get_damaged.c
-void enemies_get_damaged(game_button_t *buttons,
-game_object_t *objs, game_stat_t *stats);
-void enemies_get_damaged2(game_button_t *buttons,
-game_object_t *objs, game_stat_t *stats);
-void enemies_get_damaged3(game_button_t *buttons,
-game_object_t *objs, game_stat_t *stats);
+void enemies_get_damaged(game_object_t *objs, game_stat_t *stats);
+void enemies_get_damaged2(game_object_t *objs, game_stat_t *stats);
+void enemies_get_damaged3(game_object_t *objs, game_stat_t *stats);
 
 #endif /* DEFENDER_H_ */

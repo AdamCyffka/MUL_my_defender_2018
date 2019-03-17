@@ -44,8 +44,7 @@ void game_change(game_stat_t *stats, game_scene_t *scene)
     buttons_activation(scene[stats->current].buttons, stats);
     if (stats->current >= wave1 && stats->current <= wave4) {
         buttons_animation(scene[stats->current].buttons);
-        enemies_get_damaged(scene[stats->current].buttons,
-        scene[stats->current].objs, stats);
+        enemies_get_damaged(scene[stats->current].objs, stats);
     }
     text_changement(scene[stats->current].texts, scene[stats->current].objs,
     stats);
