@@ -41,14 +41,11 @@ SRCS	= 	src/main.c							\
 OBJS	= $(SRCS:.c=.o)
 
 CFLAGS = -Iinclude
-CFLAGS += -Wall -Wextra
 CFLAGS += -L./lib/printf -lprintf
 CFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
-CFLAGS += -ggdb3
 
 LDFLAGS = -L./lib/printf -lprintf
 LDFLAGS += -lcsfml-system -lcsfml-audio -lcsfml-graphics -lcsfml-window
-LDFLAGS += -ggdb3
 
 all: mklib $(NAME)
 
