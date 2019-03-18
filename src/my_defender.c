@@ -70,7 +70,7 @@ int create_scene(game_scene_t *scene)
 int my_defender(window_t *params)
 {
     sfEvent event;
-    game_stat_t stat = {defeat, 0, enemy1, 5, 200, false, false,
+    game_stat_t stat = {menu, 0, enemy1, 5, 200, false, false,
     (sfVector2f) {0, 0},
     sfClock_create(), sfClock_create(), sfClock_create(), sfClock_create(),
     sfClock_create(), sfClock_create(), sfClock_create()};
