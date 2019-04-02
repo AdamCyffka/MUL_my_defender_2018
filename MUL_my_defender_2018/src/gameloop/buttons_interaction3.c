@@ -72,4 +72,3 @@ void choose_tower(game_button_t *buttons, game_stat_t *stats, int tmp)
         buttons[tmp].action = tmp2 - 4;
     }
 }
-
