@@ -1,9 +1,9 @@
 # MUL_my_defender_2018
 
-![alt text](https://forthebadge.com/images/badges/made-with-c.svg) 
-![alt text](https://forthebadge.com/images/badges/built-with-love.svg)
+![Github](https://forthebadge.com/images/badges/made-with-c.svg) 
+![Github](https://forthebadge.com/images/badges/built-with-love.svg)
 
-## MY HUNTER
+## MY DEFENDER
 
 This project is a Tower Defense game. Our main challenge for this game will be to create nice and smooth user interface and menus.
 Your game must follow the following rules:
@@ -31,5 +31,8 @@ CSFML ([Download](https://www.sfml-dev.org/download/csfml/index-fr.php))
 
 2) `./my_defender`
 
-## PREVIEWy
+## PREVIEW
 
+![Github](https://image.noelshack.com/fichiers/2019/14/2/1554226695-screenshot-from-2019-04-02-19-33-38.png)
+![Github](https://image.noelshack.com/fichiers/2019/14/2/1554226742-screenshot-from-2019-04-02-19-34-05.png)
+![Github](https://image.noelshack.com/fichiers/2019/14/2/1554226758-screenshot-from-2019-04-02-19-37-32.png)
