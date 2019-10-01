@@ -3,7 +3,7 @@
 ![Github](https://forthebadge.com/images/badges/made-with-c.svg) 
 ![Github](https://forthebadge.com/images/badges/built-with-love.svg)
 
-## MY DEFENDER
+## THE PROJECT
 
 This project is a Tower Defense game. Our main challenge for this game will be to create nice and smooth user interface and menus.
 
