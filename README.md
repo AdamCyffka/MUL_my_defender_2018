@@ -3,7 +3,7 @@
 ![Github](https://forthebadge.com/images/badges/made-with-c.svg) 
 ![Github](https://forthebadge.com/images/badges/built-with-love.svg)
 
-## THE PROJECT
+## The project
 
 This project is a Tower Defense game. Our main challenge for this game will be to create nice and smooth user interface and menus.
 
@@ -17,17 +17,17 @@ the playground.
 * When the castle is reached by an enemy, it takes damages.
 * If the castle reaches 0 hit points the player loose.
 
-## REQUIREMENT
+## Requirement
 
 CSFML ([Download](https://www.sfml-dev.org/download/csfml/index-fr.php))
 
-## USAGE
+## Usage
 
 1) `make`
 
 2) `./my_defender`
 
-## PREVIEW
+## Preview
 
 ![Github](https://i.ibb.co/tQLSymw/Screenshot-from-2019-04-02-19-33-38.png)
 ![Github](https://i.ibb.co/6yvBcxb/Screenshot-from-2019-04-02-19-34-05.png)
