@@ -1,8 +1,5 @@
 # MUL_my_defender_2018
 
-![Github](https://forthebadge.com/images/badges/made-with-c.svg) 
-![Github](https://forthebadge.com/images/badges/built-with-love.svg)
-
 ## The project
 
 This project is a Tower Defense game. Our main challenge for this game will be to create nice and smooth user interface and menus.
@@ -27,8 +24,9 @@ CSFML ([Download](https://www.sfml-dev.org/download/csfml/index-fr.php))
 
 2) `./my_defender`
 
-## Preview
+3) For more information, type `./my_rpg -h`
 
-![Github](https://i.ibb.co/tQLSymw/Screenshot-from-2019-04-02-19-33-38.png)
-![Github](https://i.ibb.co/6yvBcxb/Screenshot-from-2019-04-02-19-34-05.png)
-![Github](https://i.ibb.co/TYWNwZW/Screenshot-from-2019-04-02-19-37-32.png)
+## Preview
+![Screenshot-from-2019-04-02-19-33-38](https://user-images.githubusercontent.com/45879662/145066224-755fb7e3-2b2e-42e7-a4b7-8938b31bf0ed.png)
+![68747470733a2f2f692e6962622e636f2f367976426378622f53637265656e73686f742d66726f6d2d323031392d30342d30322d31392d33342d30352e706e67](https://user-images.githubusercontent.com/45879662/145066226-0ef82690-08ad-4335-9541-e78b4aa2033b.png)
+![68747470733a2f2f692e6962622e636f2f5459574e775a572f53637265656e73686f742d66726f6d2d323031392d30342d30322d31392d33372d33322e706e67](https://user-images.githubusercontent.com/45879662/145066233-6a97a40e-abb0-4686-b757-6723af29182c.png)
